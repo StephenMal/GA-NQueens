@@ -13,7 +13,8 @@ public class Chromo
 *                            INSTANCE VARIABLES                                *
 *******************************************************************************/
 
-	public String chromo;
+	public String chromoStr;
+	public int[] chromoInt;
 	public double rawFitness;
 	public double sclFitness;
 	public double proFitness;
@@ -30,15 +31,24 @@ public class Chromo
 
 	public Chromo(){
 
-		//  Set gene values to a randum sequence of 1's and 0's
-		char geneBit;
-		chromo = "";
-		for (int i=0; i<Parameters.numGenes; i++){
-			for (int j=0; j<Parameters.geneSize; j++){
-				randnum = Search.r.nextDouble();
-				if (randnum > 0.5) geneBit = '0';
-				else geneBit = '1';
-				this.chromo = chromo + geneBit;
+		//  If using binary string, set gene values to a randum sequence of 1's and 0's
+		if (Parameters.geneDataType == 1){
+			char geneBit;
+			chromoStr = "";
+			for (int i=0; i<Parameters.numGenes; i++){
+				for (int j=0; j<Parameters.geneSize; j++){
+					randnum = Search.r.nextDouble();
+					if (randnum > 0.5) geneBit = '0';
+					else geneBit = '1';
+					this.chromoStr = chromoStr + geneBit;
+				}
+			}
+		}
+		// If using an integer array, set gene values to a random int value 0 - upperBound
+		if (Parameters.geneDataType == 2){
+			chromoInt = int[Parameters.numGenes];
+			for (int i = 0; i < Parameters.numGenes; i++){
+				chromoInt[i] = Search.r.nextInt(Parameters.upperBound);
 			}
 		}
 
@@ -52,47 +62,64 @@ public class Chromo
 *                                MEMBER METHODS                                *
 *******************************************************************************/
 
-	//  Get Alpha Represenation of a Gene **************************************
 
+	//  Get Alpha (binary string) Represenation of a Gene
 	public String getGeneAlpha(int geneID){
-		int start = geneID * Parameters.geneSize;
-		int end = (geneID+1) * Parameters.geneSize;
-		String geneAlpha = this.chromo.substring(start, end);
-		return (geneAlpha);
+		// If dealing with binary string, cut needed pieces
+		if(Parameters.geneDataType == 1){
+			int start = geneID * Parameters.geneSize;
+			int end = (geneID+1) * Parameters.geneSize;
+			String geneAlpha = this.chromoStr.substring(start, end);
+			return (geneAlpha);
+		}
+		if(Parameters.geneDataType == 2){
+			return intToBinaryStr(getIntGeneValue(geneID));
+		}
 	}
 
-	//  Get Integer Value of a Gene (Positive or Negative, 2's Compliment) ****
-
+	//  Get Integer Value of a Gene (Positive or Negative, 2's Compliment)  (Binary String)
 	public int getIntGeneValue(int geneID){
-		String geneAlpha = "";
-		int geneValue;
-		char geneSign;
-		char geneBit;
-		geneValue = 0;
-		geneAlpha = getGeneAlpha(geneID);
-		for (int i=Parameters.geneSize-1; i>=1; i--){
-			geneBit = geneAlpha.charAt(i);
-			if (geneBit == '1') geneValue = geneValue + (int) Math.pow(2.0, Parameters.geneSize-i-1);
+		// If dealing with Binary Strings
+		if(Parameters.geneDataType == 1){
+			String geneAlpha = "";
+			int geneValue;
+			char geneSign;
+			char geneBit;
+			geneValue = 0;
+			geneAlpha = getGeneAlpha(geneID);
+			for (int i=Parameters.geneSize-1; i>=1; i--){
+				geneBit = geneAlpha.charAt(i);
+				if (geneBit == '1') geneValue = geneValue + (int) Math.pow(2.0, Parameters.geneSize-i-1);
+			}
+			geneSign = geneAlpha.charAt(0);
+			if (geneSign == '1') geneValue = geneValue - (int)Math.pow(2.0, Parameters.geneSize-1);
+			return (geneValue);
 		}
-		geneSign = geneAlpha.charAt(0);
-		if (geneSign == '1') geneValue = geneValue - (int)Math.pow(2.0, Parameters.geneSize-1);
-		return (geneValue);
+		// If dealing with integers
+		if(Parameters.geneDataType == 2){
+			return this.chromoInt[geneID];
+		}
 	}
 
-	//  Get Integer Value of a Gene (Positive only) ****************************
-
+	//  Get Integer Value of a Gene (Positive only)
 	public int getPosIntGeneValue(int geneID){
-		String geneAlpha = "";
-		int geneValue;
-		char geneBit;
-		geneValue = 0;
-		geneAlpha = getGeneAlpha(geneID);
-		for (int i=Parameters.geneSize-1; i>=0; i--){
-			geneBit = geneAlpha.charAt(i);
-			if (geneBit == '1') geneValue = geneValue + (int) Math.pow(2.0, Parameters.geneSize-i-1);
+		if (Parameters.geneDataType == 1){
+			String geneAlpha = "";
+			int geneValue;
+			char geneBit;
+			geneValue = 0;
+			geneAlpha = getGeneAlpha(geneID);
+			for (int i=Parameters.geneSize-1; i>=0; i--){
+				geneBit = geneAlpha.charAt(i);
+				if (geneBit == '1') geneValue = geneValue + (int) Math.pow(2.0, Parameters.geneSize-i-1);
+			}
+			return (geneValue);
 		}
-		return (geneValue);
+		if (Parameters.geneDataType == 2){
+			return Math.abs(getIntGeneValue(int geneID));
+		}
 	}
+
 
 	//  Mutate a Chromosome Based on Mutation Type *****************************
 
@@ -106,7 +133,7 @@ public class Chromo
 		case 1:     //  Replace with new random number
 
 			for (int j=0; j<(Parameters.geneSize * Parameters.numGenes); j++){
-				x = this.chromo.charAt(j);
+				x = this.chromoStr.charAt(j);
 				randnum = Search.r.nextDouble();
 				if (randnum < Parameters.mutationRate){
 					if (x == '1') x = '0';
@@ -114,7 +141,7 @@ public class Chromo
 				}
 				mutChromo = mutChromo + x;
 			}
-			this.chromo = mutChromo;
+			this.chromoStr = mutChromo;
 			break;
 
 		default:
@@ -172,8 +199,8 @@ public class Chromo
 			xoverPoint1 = 1 + (int)(Search.r.nextDouble() * (Parameters.numGenes * Parameters.geneSize-1));
 
 			//  Create child chromosome from parental material
-			child1.chromo = parent1.chromo.substring(0,xoverPoint1) + parent2.chromo.substring(xoverPoint1);
-			child2.chromo = parent2.chromo.substring(0,xoverPoint1) + parent1.chromo.substring(xoverPoint1);
+			child1.chromoStr = parent1.chromoStr.substring(0,xoverPoint1) + parent2.chromoStr.substring(xoverPoint1);
+			child2.chromoStr = parent2.chromoStr.substring(0,xoverPoint1) + parent1.chromoStr.substring(xoverPoint1);
 			break;
 
 		case 2:     //  Two Point Crossover
@@ -198,7 +225,7 @@ public class Chromo
 	public static void mateParents(int pnum, Chromo parent, Chromo child){
 
 		//  Create child chromosome from parental material
-		child.chromo = parent.chromo;
+		child.chromoStr = parent.chromoStr;
 
 		//  Set fitness values back to zero
 		child.rawFitness = -1;   //  Fitness not yet evaluated
@@ -210,7 +237,7 @@ public class Chromo
 
 	public static void copyB2A (Chromo targetA, Chromo sourceB){
 
-		targetA.chromo = sourceB.chromo;
+		targetA.chromoStr = sourceB.chromoStr;
 
 		targetA.rawFitness = sourceB.rawFitness;
 		targetA.sclFitness = sourceB.sclFitness;
@@ -218,4 +245,8 @@ public class Chromo
 		return;
 	}
 
+	// Change an integer value into a binary string of usable size
+	public static void intToBinaryStr(int value){
+		return String.format("%" + len + "s", Integer.toBinaryString(value)).replaceAll(" ", "0");
+	}
 }   // End of Chromo.java ******************************************************
