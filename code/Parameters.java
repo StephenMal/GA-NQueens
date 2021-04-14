@@ -41,11 +41,10 @@ public class Parameters
 
 // New parameters
 	public static int geneDataType;
-	public static int enforceBoundaries;
+	public static int boundaryEnforcementType;
+	public static int boundaryEnforcement;
 	public static int geneValueRepresentation;
 	public static int fitnessFunctionType;
-// New values calculated using parameters
-	public static int upperBound;
 
 /*******************************************************************************
 *                              CONSTRUCTORS                                    *
@@ -78,7 +77,7 @@ public class Parameters
 		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
 		geneDataType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		enforceBoundaries = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		boundaryEnforcementType = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		geneValueRepresentation = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		fitnessFunctionType = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
@@ -88,16 +87,12 @@ public class Parameters
 		if (scaleType==0 || scaleType==2) minORmax = "max";
 		else minORmax = "min";
 
-		// Find Upper boundary
-		if (enforceBoundaries == 3){
-			// 3 means no, but limit by gene size
-			// We will calculate it for integer rep
-			upperBound = Math.pow(2,geneSize);
+		// Turn off boundaries for random keys w/o bounds
+		if (geneValueRepresentation == 2){
+			boundaryEnforcement = 0;
 		}
-		else{
-			// 1 & 2 mean yes, so we will limit to
-			// the size of the board
-			upperBound = numGenes;
+		else {
+			boundaryEnforcement = 1;
 		}
 
 	}
@@ -137,9 +132,9 @@ public class Parameters
 		output.write("Size of Genes                :  " + geneSize + "\n");
 
 		output.write("Gene Data Type               :  " + geneDataType + "\n");
-		output.write("Enforce Boundaries           :  " + enforceBoundaries + "\n");
+		output.write("Bounds Enforcement Toggle    :  " + boundaryEnforcement + "\n");
+		output.write("Bounds Enforcement Type      :  " + boundaryEnforcementType + "\n");
 		output.write("Gene Value Representation    :  " + geneValueRepresentation + "\n");
-		output.write("Upper Bound                  :  " + upperBound + "\n");
 		output.write("Fitness Function Type        :  " + fitnessFunctionType + "\n");
 
 		output.write("\n\n");
