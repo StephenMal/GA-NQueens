@@ -16,6 +16,7 @@ Size of Genes  (8)           :100
 Data Rep Data Type  (9)      :0
 Enforce Boundaries (10)      :0
 Gene Value Rep  (11)         :0
+Fitness Function  (12)       :0
 
 Notes:
 
@@ -63,9 +64,16 @@ Notes:
 
 10) Enforce board size boundaries (gene values cannot exceed board size)
 	1 = yes, handle with modulo (or if negative, abs then modulo)
-	2 = yes, handle by keeping at boundary 
+	2 = yes, handle by keeping at boundary
 	3 = no, just keep limited by gene size with modulo (or if negative, abs then modulo)
 
 11) Determines how the problem will be represented
-	0 for random key assignment
-	1 for row value representation
+	1 = random key assignment
+	2 = row value representation
+
+12) Fitness Function
+	1 = All or Nothing Fitness, 0 for failure and 1 for success
+	2 = Reward 1 point for every queen until we find an invalid placed queen
+	3 = Reward X points for every queen until we find an invalid placed queen, where x is the current column
+	4 = Reward 1 point for every queen that is not intersecting with another queen
+	5 = Start with N points and subtract for every invalid queen
