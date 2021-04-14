@@ -11,7 +11,7 @@ Crossover Rate (4)           :0.8
 Mutation Type (5)            :1
 Mutation Rate (6)            :0.005
 Random Number Seed           :75982
-Number of Genes/Points (7)   :1
+Number of Genes(# queens)(7) :1
 Size of Genes  (8)           :100
 Data Rep Data Type  (9)      :0
 Enforce Boundaries (10)      :0
@@ -38,7 +38,7 @@ Notes:
 	Use "0" to turn off crossover
 
 5)  Mutation Type Codes
-	1 = Flip Bit
+	1 = Flip Bit / Random Replacement
 	2 = Plus or Minus 1 (Either add or subtract 1)
 	3 = Local swap (Swap with either left or right)
 	4 = Random Swap (Swap with a gene at any random spot)
@@ -61,10 +61,10 @@ Notes:
 	2 = integer
 		(will find 2^genesize to find int cap)
 
-10) Enforce boundaries (gene values cannot exceed board size)
-	1 = yes, handle with modulo
-	2 = yes, handle by keeping at boundary
-	3 = no, keep limited by gene size
+10) Enforce board size boundaries (gene values cannot exceed board size)
+	1 = yes, handle with modulo (or if negative, abs then modulo)
+	2 = yes, handle by keeping at boundary 
+	3 = no, just keep limited by gene size with modulo (or if negative, abs then modulo)
 
 11) Determines how the problem will be represented
 	0 for random key assignment

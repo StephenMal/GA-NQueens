@@ -43,6 +43,8 @@ public class Parameters
 	public static int geneDataType;
 	public static int enforceBoundaries;
 	public static int geneValueRepresentation;
+// New values calculated using parameters
+	public static int upperBound;
 
 /*******************************************************************************
 *                              CONSTRUCTORS                                    *
@@ -80,8 +82,21 @@ public class Parameters
 
 		parmInput.close();
 
+		// Find scale type
 		if (scaleType==0 || scaleType==2) minORmax = "max";
 		else minORmax = "min";
+
+		// Find Upper boundary
+		if (enforceBoundaries == 3){
+			// 3 means no, but limit by gene size
+			// We will calculate it for integer rep
+			upperBound = Math.pow(2,geneSize);
+		}
+		else{
+			// 1 & 2 mean yes, so we will limit to
+			// the size of the board
+			upperBound = numGenes;
+		}
 
 	}
 
@@ -118,6 +133,11 @@ public class Parameters
 		output.write("Random Number Seed           :  " + seed + "\n");
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
 		output.write("Size of Genes                :  " + geneSize + "\n");
+
+		output.write("Gene Data Type               :  " + geneDataType + "\n");
+		output.write("Enforce Boundaries           :  " + enforceBoundaries + "\n");
+		output.write("Gene Value Representation    :  " + geneValueRepresentation + "\n");
+		output.write("Upper Bound                  :  " + upperBound + "\n");
 
 		output.write("\n\n");
 
