@@ -39,6 +39,11 @@ public class Parameters
 	public static int numGenes;
 	public static int geneSize;
 
+// New parameters
+	public static int geneDataType;
+	public static int enforceBoundaries;
+	public static int geneValueRepresentation;
+
 /*******************************************************************************
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
@@ -68,6 +73,10 @@ public class Parameters
 		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
 		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
+		geneDataType = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		enforceBoundaries = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		geneValueRepresentation = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
 		parmInput.close();
 

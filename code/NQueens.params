@@ -1,0 +1,71 @@
+Experiment ID                :nqueens
+Problem Type                 :nq
+Data Input File Name         :NA
+Number of Runs               :10
+Generations per Run          :200
+Population Size              :100
+Selection Method (1)         :1
+Fitness Scaling Type (2)     :0
+Crossover Type (3)           :1
+Crossover Rate (4)           :0.8
+Mutation Type (5)            :1
+Mutation Rate (6)            :0.005
+Random Number Seed           :75982
+Number of Genes/Points (7)   :1
+Size of Genes  (8)           :100
+Data Rep Data Type  (9)      :0
+Enforce Boundaries (10)      :0
+Gene Value Rep  (11)         :0
+
+Notes:
+
+1)  Selection Type Codes
+	1 = Proportional Selection
+	2 = Tournament Selection
+	3 = Random Selection
+
+2)  Fitness Scaling Type    0 = Scale for Maximization (no change to raw fitness)
+	1 = Scale for Minimization (reciprocal of raw fitness)
+	2 = Rank for Maximization
+	3 = Rank for Minimization
+
+3)  Crossover Type Codes
+	1 = Single Point Crossover
+	2 = Two Point Crossover
+	3 = Uniform Crossover
+
+4)  Crossover Rates from 0 to 1
+	Use "0" to turn off crossover
+
+5)  Mutation Type Codes
+	1 = Flip Bit
+	2 = Plus or Minus 1 (Either add or subtract 1)
+	3 = Local swap (Swap with either left or right)
+	4 = Random Swap (Swap with a gene at any random spot)
+
+6)  Mutation Rates from 0 to 1,
+	Use "0" to turn off mutation
+
+7)	Represents number of genes in each chromosome.
+	(Should be size of the board)
+
+8)	Determines number of bits in each gene.
+	Chromosome bits = Number of Genes times Size
+	If binary string, it will give the length of each gene.
+	If integers, it will give the max value of that integer by finding 2^(Size of Genes)
+	(2^(Size of Genes) should at least be Board Size)
+
+9)  Determines if will use binary or integer data types in the chromosome
+	1 = binary string
+		(will rely off gene size for length)
+	2 = integer
+		(will find 2^genesize to find int cap)
+
+10) Enforce boundaries (gene values cannot exceed board size)
+	1 = yes, handle with modulo
+	2 = yes, handle by keeping at boundary
+	3 = no, keep limited by gene size
+
+11) Determines how the problem will be represented
+	0 for random key assignment
+	1 for row value representation
