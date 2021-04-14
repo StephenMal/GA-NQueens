@@ -39,6 +39,13 @@ public class Parameters
 	public static int numGenes;
 	public static int geneSize;
 
+// New parameters
+	public static int geneDataType;
+	public static int boundaryEnforcementType;
+	public static int boundaryEnforcement;
+	public static int geneValueRepresentation;
+	public static int fitnessFunctionType;
+
 /*******************************************************************************
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
@@ -69,10 +76,24 @@ public class Parameters
 		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
+		geneDataType = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		boundaryEnforcementType = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		geneValueRepresentation = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		fitnessFunctionType = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
 		parmInput.close();
 
+		// Find scale type
 		if (scaleType==0 || scaleType==2) minORmax = "max";
 		else minORmax = "min";
+
+		// Turn off boundaries for random keys w/o bounds
+		if (geneValueRepresentation == 2){
+			boundaryEnforcement = 0;
+		}
+		else {
+			boundaryEnforcement = 1;
+		}
 
 	}
 
@@ -109,6 +130,12 @@ public class Parameters
 		output.write("Random Number Seed           :  " + seed + "\n");
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
 		output.write("Size of Genes                :  " + geneSize + "\n");
+
+		output.write("Gene Data Type               :  " + geneDataType + "\n");
+		output.write("Bounds Enforcement Toggle    :  " + boundaryEnforcement + "\n");
+		output.write("Bounds Enforcement Type      :  " + boundaryEnforcementType + "\n");
+		output.write("Gene Value Representation    :  " + geneValueRepresentation + "\n");
+		output.write("Fitness Function Type        :  " + fitnessFunctionType + "\n");
 
 		output.write("\n\n");
 

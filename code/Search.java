@@ -42,6 +42,11 @@ public class Search {
 	public static double averageRawFitness;
 	public static double stdevRawFitness;
 
+	public static long start_time_ns;
+	public static long first_sol_time_ns;
+	public static long end_time_ns;
+	public static boolean found_sol;
+
 	public static int G;
 	public static int R;
 	public static Random r = new Random();
@@ -70,8 +75,12 @@ public class Search {
 
 	public static void main(String[] args) throws java.io.IOException{
 
+		// Record starting time & data tracking variables
 		Calendar dateAndTime = Calendar.getInstance();
 		Date startTime = dateAndTime.getTime();
+		start_time_ns = System.nanoTime();
+		first_sol_time_ns = -1;
+		found_sol = false;
 
 	//  Read Parameter File
 		System.out.println("\nParameter File Name is: " + args[0] + "\n");
@@ -93,11 +102,8 @@ public class Search {
 	//	the appropriate class file (extending FitnessFunction.java) and add
 	//	an else_if block below to instantiate the problem.
 
-		if (Parameters.problemType.equals("NM")){
-				problem = new NumberMatch();
-		}
-		else if (Parameters.problemType.equals("OM")){
-				problem = new OneMax();
+		if (Parameters.problemType.equals("NQ")){
+				problem = new NQueens();
 		}
 		else System.out.println("Invalid Problem Type");
 
@@ -358,6 +364,8 @@ public class Search {
 			System.out.println(R + "\t" + "B" + "\t"+ (int)bestOfRunChromo.rawFitness);
 
 		} //End of a Run
+		// End NS timers
+		long end_time_ns = System.nanoTime();
 
 		Hwrite.left("B", 8, summaryOutput);
 
@@ -381,6 +389,14 @@ public class Search {
 		Date endTime = dateAndTime.getTime();
 		System.out.println("End  :  " + endTime);
 
+		System.out.println("Nanosecond Time (N = " + Parameters.numGenes + ")");
+		System.out.println("NS Time total: "+(end_time_ns - start_time_ns) + "ns");
+		if (found_sol == true){
+			System.out.println("NS Time until Solution:"+(first_sol_time_ns - start_time_ns) + "ns");
+		}
+		else {
+			System.out.println("No solution found");
+		}
 	} // End of Main Class
 
 }   // End of Search.Java ******************************************************
