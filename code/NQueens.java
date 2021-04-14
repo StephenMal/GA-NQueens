@@ -23,7 +23,7 @@ public class NQueens extends FitnessFunction{
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
 
-	public OneMax(){
+	public NQueens(){
 		name = "NQueens Problem";
 	}
 
@@ -34,9 +34,98 @@ public class NQueens extends FitnessFunction{
 //  COMPUTE A CHROMOSOME'S RAW FITNESS
 
 	public void doRawFitness(Chromo X){
+		// arrays for tracking queens' positions & bad areas
+		int board_size = Parameters.numGenes;
+    boolean chessBoard[][] = new boolean[board_size][board_size];
+    int usedRow[] = new int[board_size*2];
+    int downDiag[] = new int[board_size*2];
+    int upDiag[] = new int[board_size*2];
+
+		switch(Parameters.fitnessFunctionType){
+			case 1: // All or Nothing
+				X.rawFitness = 1;
+				for (int col = 0; col < board_size; col++){
+					int row = X.getPosIntGeneValue(col);
+					if (NQueensUtil.checkPlacementValidity(chessBoard, usedRow, downDiag, upDiag, row, col, board_size) == false){
+						X.rawFitness = 0;
+						return;
+					}
+					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
+				}
+				recordSolutionTime();
+				break;
+			case 2: // Reward 1 point for every queen until we find an invalid placed queen
+				X.rawFitness = 0;
+				for (int col = 0; col < board_size; col++){
+					int row = X.getPosIntGeneValue(col);
+					if (NQueensUtil.checkPlacementValidity(chessBoard, usedRow, downDiag, upDiag, row, col, board_size) == false){
+						return;
+					}
+					X.rawFitness++;
+					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
+				}
+				recordSolutionTime();
+				break;
+			case 3: // Reward 1 point for every queen until we find an invalid placed queen
+				X.rawFitness = 0;
+				for (int col = 0; col < board_size; col++){
+					int row = X.getPosIntGeneValue(col);
+					if (NQueensUtil.checkPlacementValidity(chessBoard, usedRow, downDiag, upDiag, row, col, board_size) == false){
+						return;
+					}
+					X.rawFitness += col;
+					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
+				}
+				recordSolutionTime();
+				break;
+			case 4: // Reward 1 point for every valid placement, do not place invalid placements
+				X.rawFitness = 0;
+				for (int col = 0; col < board_size; col++){
+					int row = X.getPosIntGeneValue(col);
+					if (NQueensUtil.checkPlacementValidity(chessBoard, usedRow, downDiag, upDiag, row, col, board_size) == true){
+						X.rawFitness++;
+						NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
+					}
+				}
+				if (X.rawFitness == Parameters.numGenes){
+					recordSolutionTime();
+				}
+				break;
+			case 5: // Reward 1 point for every valid placement, do not place invalid placements
+				X.rawFitness = Parameters.numGenes;
+				for (int col = 0; col < board_size; col++){
+					int row = X.getPosIntGeneValue(col);
+					if (NQueensUtil.checkPlacementValidity(chessBoard, usedRow, downDiag, upDiag, row, col, board_size) == false){
+						X.rawFitness--;
+					}
+					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
+				}
+				if (X.rawFitness == Parameters.numGenes){
+					recordSolutionTime();
+				}
+				break;
+		}
 
 	}
 
+	public static void recordSolutionTime(){
+		if (Search.found_sol == false){
+			Search.found_sol = true;
+			Search.first_sol_time_ns = System.nanoTime();
+		}
+
+	}
+//	PRINT CHROMOSOME
+	public static void printChromo(Chromo X){
+		if (Parameters.geneDataType == 1){
+			System.out.println("("+X.chromoStr+")");
+			}
+		System.out.print("[");
+		for (int i = 0; i < Parameters.numGenes; i++){
+			System.out.print("(" + i + "," + X.getPosIntGeneValue(i) + ")");
+		}
+		System.out.print("\n");
+	}
 //  PRINT OUT AN INDIVIDUAL GENE TO THE SUMMARY FILE
 	public void doPrintGenes(Chromo X, FileWriter output) throws java.io.IOException{
 
