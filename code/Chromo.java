@@ -13,8 +13,7 @@ public class Chromo
 *                            INSTANCE VARIABLES                                *
 *******************************************************************************/
 
-	public String chromo; // Chromo if in binary string form
-	public int[] intChromo; // Chromo if in integer form
+	public String chromo;
 	public double rawFitness;
 	public double sclFitness;
 	public double proFitness;
@@ -31,26 +30,15 @@ public class Chromo
 
 	public Chromo(){
 
-		// If gene data type set to binary string (1)
-		if (Parameters.geneDataType == 1){
-			//  Set gene values to a randum sequence of 1's and 0's
-			char geneBit;
-			chromo = "";
-			for (int i=0; i<Parameters.numGenes; i++){
-				for (int j=0; j<Parameters.geneSize; j++){
-					randnum = Search.r.nextDouble();
-					if (randnum > 0.5) geneBit = '0';
-					else geneBit = '1';
-					this.chromo = chromo + geneBit;
-				}
-			}
-		}
-
-		// If gene data type set to integer list (2)
-		if (Parameters.geneDataType == 2){
-			intChromo = new int[Parameters.numGenes]
-			for (int i = 0; i < Parameters.numGenes; i++){
-				randnum = Search.r.nextInt() % Parameters.numGenes;
+		//  Set gene values to a randum sequence of 1's and 0's
+		char geneBit;
+		chromo = "";
+		for (int i=0; i<Parameters.numGenes; i++){
+			for (int j=0; j<Parameters.geneSize; j++){
+				randnum = Search.r.nextDouble();
+				if (randnum > 0.5) geneBit = '0';
+				else geneBit = '1';
+				this.chromo = chromo + geneBit;
 			}
 		}
 
@@ -106,51 +94,6 @@ public class Chromo
 		return (geneValue);
 	}
 
-	// Turn integer value into binary string of same size as gene size
-	public String intToBinaryStr(int intVal){
-		return String.format("%" + Parameters.geneSize + "s", Integer.toBinaryString(intVal)).replaceAll(" ","0");
-	}
-
-	//  Check and fix boundaries for genes depending on gene data type & boundary settings
-
-	public String fixBoundaries(String geneStr){
-		int integerGeneValue = Integer.parseInt(geneStr, 2);
-		// Check if above upper bound
-		// Enforce with cap on boardSize
-		if (Parameters.enforceBoundaries == 2){
-			if (integerGeneValue > Parameters.upperBound){
-				return intToBinaryStr(Parameters.upperBound);
-			}
-			if (integerGeneValue < 0)
-		}
-		else{ // otherwise must enforce w/ modulo either for board size of gene size
-			return intToBinaryStr(integerGeneValue % Parameters.upperBound);
-		}
-		// Otherwise return with no changes
-		return geneStr;
-	}
-
-	public int fixBoundaries(int geneInt){
-		// Enforce with cap on boardSize
-		if (Parameters.enforceBoundaries == 2){
-			if (geneInt > Parameters.upperBound){
-				return Parameters.upperBound;
-			}
-			if (geneInt < 0){
-				return 0;
-			}
-		}
-		else{ // otherwise must enforce w/ modulo either for board size of gene size
-			if (geneInt > Parameters.upperBound){
-				return geneInt % Parameters.upperBound;
-			}
-			if (geneInt < 0){
-				return Math.abs(geneInt) % Parameters.upperBound;
-			}
-		}
-		// Otherwise return with no changes
-		return geneInt;
-	}
 	//  Mutate a Chromosome Based on Mutation Type *****************************
 
 	public void doMutation(){
@@ -161,103 +104,17 @@ public class Chromo
 		switch (Parameters.mutationType){
 
 		case 1:     //  Replace with new random number
-			// If using binary string representation (1)
-			if (Parameters.geneDataType == 1){
-				for (int i = 0; i < Parameters.numGenes; i++){
-					mutGene = ""
-					for (int j=0; j<(Parameters.geneSize); j++){
-						x = this.chromo.charAt((i*Parameters.geneSize)+j);
-						randnum = Search.r.nextDouble();
-						if (randnum < Parameters.mutationRate){
-							if (x == '1') x = '0';
-							else x = '1';
-						}
-						mutGene = mutGene + x;
-					}
-					mutChromo = mutChromo + fixBoundaries(mutGene);
-				}
-				this.chromo = mutChromo
-			}
-			// If using integer list representation (2)
-			if (Parameters.geneDateType == 2){
-				for(int j=0; j<Parameters.numGenes; j++){
-					randnum = Search.r.nextDouble();
-					if (randnum < Parameters.mutationRate){
-						this.intChromo[j] = fixBoundaries(Search.r.nextInt());
-					}
-				}
-			}
-		case 2:		// Plus or Minus 1
-			// If using binary string representation (1)
-			if (Parameters.geneDataType == 1){
-				for (int j=0; j<(Parameters.numGenes); j++){
-					randnum = Search.r.nextDouble();
-					// If mutation
-					if (randnum < Parameters.mutationRate){
-						randnum = Search.r.nextDouble();
-						if (randnum < 0.50){ // Subtract 1
-							int intGeneValue = getIntGeneValue(j);
-							if (intGeneValue == 0){ // Fix bounds before going into negative binary
-								if (Parameters.enforceBoundaries == 2){
-									mutChromo += intToBinaryStr(0);
-								}
-								else{
-									mutChromo += intToBinaryStr(Math.abs(intGeneValue - 1) % Parameters.upperBound);
-								}
-							}
-							else{ //otherwise not zero, go ahead and do normal ops
-								mutChromo += fixBoundaries(Integer.toBinaryString(intGeneValue - 1));
-							}
-						}
-						if (randnum >= 0.50){ // Add 1
-							mutChromo += fixBoundaries(Integer.toBinaryString(intGeneValue + 1));
-						}
-					}
-					else { // Otherwise just add the normal value
-						mutChromo += getGeneAlpha(j);
-					}
-				}
-				this.chromo = mutChromo;
-			}
-			// If using integer list representation (2)
-			if (Parameters.geneDateType == 2){
-				for(int j=0; j<Parameters.numGenes; j++){
-					randnum = Search.r.nextDouble();
-					if (randnum < Parameters.mutationRate){
-						randnum = Search.r.nextDouble();
-						if (randnum < 0.50){ // subtract 1
-							this.intChromo[j]--;
-						}
-						else { // add 1
-							this.intChromo[j]++;
-						}
-						this.intChromo[j] = fixBoundaries(this.intChromo[j]);
-					}
-				}
-			}
-		case 3: // Local Swap
-		// If using binary string representation (1)
-		if (Parameters.geneDataType == 1){
-			for (int j=0; j<(Parameters.numGenes); j++){
-				mutChromo += lastGene;
+
+			for (int j=0; j<(Parameters.geneSize * Parameters.numGenes); j++){
+				x = this.chromo.charAt(j);
 				randnum = Search.r.nextDouble();
 				if (randnum < Parameters.mutationRate){
-					randnum = Search.r.nextDouble();
-					if (randnum < 0.50){ // Swap with left (ignore if leftmost gene)
-						if (j != 0){
-							lastGene = getGeneAlpha(j-1)
-						}
-					}
-					if (randnum >= 0.50){ // Swap with right
-
-					}
+					if (x == '1') x = '0';
+					else x = '1';
 				}
-
+				mutChromo = mutChromo + x;
 			}
-
-			this.chromo = fixBoundaries(mutChromo);
-		}
-
+			this.chromo = mutChromo;
 			break;
 
 		default:
