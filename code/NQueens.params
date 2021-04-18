@@ -13,10 +13,8 @@ Mutation Rate (6)            :0.01
 Random Number Seed           :75982
 Number of Genes(# queens)(7) :6
 Size of Genes  (8)           :3
-Gene Data Type  (9)          :1
-Enforce Boundaries (10)      :1
-Gene Value Rep  (11)         :1
-Fitness Function  (12)       :2
+Gene Value Rep  (9)          :1
+Fitness Function  (10)       :1
 
 Notes:
 
@@ -51,31 +49,10 @@ Notes:
 7)	Represents number of genes in each chromosome.
 	(Should be size of the board)
 
-8)	Determines number of bits in each gene.
-	Chromosome bits = Number of Genes times Size
-	If binary string, it will give the length of each gene.
-	If integers, it will give the max value of that integer by finding 2^(Size of Genes)
-	(2^(Size of Genes) should at least be Board Size)
-
-9)  Determines if will use binary or integer data types in the chromosome
-	1 = binary string
-		(will rely off gene size for length)
-	2 = integer
-		(will find 2^genesize to find int cap)
-
-10) Enforce board size boundaries (gene values cannot exceed board size)
-	1 = handle with modulo (or if negative, abs then modulo)
-	2 = handle by keeping at boundary ( if x > upperbound, x = upperbound)
-
-11) Determines how the problem will be represented
-	1 = row value representation
-	2 = random key assignment w/o boundary enforcement
-	3 = random key assignment w/ boundary enforcement
+9)	Determines how the problem will be represented
+	1 = Col Pos Reprentation
+	2 = Repairing
 
 
-12) Fitness Function
+10)	Fitness Function
 	1 = All or Nothing Fitness, 0 for failure and 1 for success
-	2 = Reward 1 point for every queen until we find an invalid placed queen
-	3 = Reward X points for every queen until we find an invalid placed queen, where x is the current column
-	4 = Reward 1 point for every queen that is not intersecting with another queen
-	5 = Start with N points and subtract for every invalid queen
