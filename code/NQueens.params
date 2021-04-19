@@ -1,26 +1,28 @@
 Experiment ID                :nqueens
 Problem Type                 :NQ
 Data Input File Name         :NA
-Number of Runs               :5
-Generations per Run          :100
-Population Size              :100
-Selection Method (1)         :1
+Number of Runs               :2
+Generations per Run          :3
+Population Size              :6
+Selection Method (1)         :5
 Fitness Scaling Type (2)     :0
-Crossover Type (3)           :1
-Crossover Rate (4)           :0.8
-Mutation Type (5)            :2
-Mutation Rate (6)            :0.01
+Crossover Type (3)           :9
+Crossover Rate (4)           :0.2
+Mutation Type (5)            :7
+Mutation Rate (6)            :0.5
 Random Number Seed           :75982
-Number of Genes(# queens)(7) :6
-Gene Value Rep  (8)          :1
-Fitness Function  (9)        :1
+Number of Genes(# queens)(7) :4
+Gene Value Rep  (8)          :2
+Fitness Function  (9)        :5
 
 Notes:
 
 1)  Selection Type Codes
 	1 = Proportional Selection
-	2 = Tournament Selection
-	3 = Random Selection
+	2 = Random Selection
+	3 = Tournament Size 2
+	4 = Tournament Size 5
+	5 = Tournament Size 10
 
 2)  Fitness Scaling Type
   0 = Scale
@@ -46,10 +48,9 @@ Notes:
 	3 = Insertion
 	4 = Inversion
 	5 = Local Swap
-	6 = Random Swap
-	7 = Replace Chromosome
-	8 = Plus/Minus 1
-	9 = Replace Gene
+	6 = Replace Chromosome
+	7 = Plus/Minus 1
+	8 = Replace Gene
 
 6)  Mutation Rates from 0 to 1,
 	Use "0" to turn off mutation
@@ -67,3 +68,4 @@ Notes:
 	3 = Reward until invalid queens
 	4 = Incrementing Reward
 	5 = Reward consecutive queens
+	6 = All or nothing (0 for failure, 1 for success)

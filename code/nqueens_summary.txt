@@ -1,0 +1,39 @@
+Experiment ID                :  nqueens
+Problem Type                 :  NQ
+Data Input File Name         :  NA
+Number of Runs               :  2
+Generations per Run          :  3
+Population Size              :  6
+Selection Method             :  5
+Fitness Scaling Type         :  0
+Min or Max Fitness           :  max
+Crossover Type               :  9
+Crossover Rate               :  0.2
+Mutation Type                :  7
+Mutation Rate                :  0.5
+Random Number Seed           :  75982
+Number of Genes/Points       :  4
+Value Representation         :  2
+Fitness Function Type        :  5
+
+
+ R   1 G   0      1      0.167      0.408
+ R   1 G   1      0        0.0        0.0
+ R   1 G   2      1      0.167      0.408
+1      0   RawFitness
+                  3          1          3          0            1
+
+ R   2 G   0      1      0.167      0.408
+ R   2 G   1      1      0.333      0.516
+ R   2 G   2      0        0.0        0.0
+2      0   RawFitness
+                  2          1          1          0            1
+
+B          RawFitness
+                  3          1          3          0            1
+
+Gen                 AvgFit              BestFit 
+0              0.17                1.0                 
+1              0.17                0.5                 
+2              0.08                0.5                 
+

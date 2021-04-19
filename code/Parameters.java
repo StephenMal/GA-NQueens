@@ -71,7 +71,7 @@ public class Parameters
 		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
 		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
-
+		valueRepresentation = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		fitnessFunctionType = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
 		parmInput.close();
@@ -114,7 +114,6 @@ public class Parameters
 
 		output.write("Random Number Seed           :  " + seed + "\n");
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
-		output.write("Size of Genes                :  " + geneSize + "\n");
 
 		output.write("Value Representation         :  " + valueRepresentation + "\n");
 		output.write("Fitness Function Type        :  " + fitnessFunctionType + "\n");
