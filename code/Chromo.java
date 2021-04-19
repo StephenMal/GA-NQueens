@@ -110,19 +110,15 @@ public class Chromo
 
 			}
 			break;
-			case 7:{	// Total Replacement
+			case 7:{	// Replace Chromosome
 
 			}
 			break;
-			case 8:{	// Flip Bit (would need key rep)
+			case 8:{	// Plus/Minus 1 (would need key rep)
 
 			}
 			break;
-			case 9:{	// Plus/Minus 1 (would need key rep)
-
-			}
-			break;
-			case 10:{	// Random Replacement (would need key rep)
+			case 9:{	// Random Replacement (would need key rep)
 
 			}
 			break;
@@ -189,31 +185,19 @@ public class Chromo
 
 			}
 			break;
-			case 6:{ // Single Point Int (would need key rep)
+			case 6:{ // Single Point (would need key rep)
 
 			}
 			break;
-			case 7:{ // Single Point Binary (would need key rep)
+			case 7:{ // Double Point (would need key rep)
 
 			}
 			break;
-			case 8:{ // Double Point Int (would need key rep)
+			case 8:{ // Keep intersections, fill rest w/ randoms
 
 			}
 			break;
-			case 9:{ // Double Point Binary (would need key rep)
-
-			}
-			break;
-			case 10:{ // Uniform (would need key rep)
-
-			}
-			break;
-			case 11:{ // Keep intersections, fill rest w/ randoms
-
-			}
-			break;
-			case 12:{ // Keep intersections, fill rest w/ random nonduplicates
+			case 9:{ // Keep intersections, fill rest w/ random nonduplicates
 
 			}
 			break;
