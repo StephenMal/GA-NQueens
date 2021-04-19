@@ -72,12 +72,21 @@ public class NQueens extends FitnessFunction{
 						X.rawFitness += downDiag[i] - 1;
 					}
 					if (upDiag[i] > 1){
-						X.rawFitness += downDiag[i] - 1;
+						X.rawFitness += upDiag[i] - 1;
 					}
 				}
 				// If rawfitness is 0, solution found record it
 				if (X.rawFitness == 0){
-					recordSolutionTime(queenPos);
+					// Verify rows work too
+					boolean complete_Board = true;
+					for (int i = 0; i < Parameters.numGenes; i++){
+						if (usedRow[i] > 1){
+							complete_Board = false;
+						}
+					}
+					if (complete_Board){
+						recordSolutionTime(queenPos, X);
+					}
 				}
 			}
 			break;
@@ -92,7 +101,7 @@ public class NQueens extends FitnessFunction{
 				}
 				// If rawfitness is 0, solution found record it
 				if (X.rawFitness == 0){
-					recordSolutionTime(queenPos);
+					recordSolutionTime(queenPos, X);
 				}
 			}
 			break;
@@ -108,7 +117,7 @@ public class NQueens extends FitnessFunction{
 				// If this is true, we have 1 good queen per column and have found
 				// a solution
 				if (X.rawFitness == board_size){
-					recordSolutionTime(queenPos);
+					recordSolutionTime(queenPos, X);
 				}
 			}
 			break;
@@ -125,7 +134,7 @@ public class NQueens extends FitnessFunction{
 				// the answer
 				int solutionFitness = (board_size / 2)*(1 + board_size);
 				if (X.rawFitness == solutionFitness){
-					recordSolutionTime(queenPos);
+					recordSolutionTime(queenPos, X);
 				}
 			}
 			break;
@@ -139,13 +148,14 @@ public class NQueens extends FitnessFunction{
 					else{
 						consecutivity++;
 					}
+					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, queenPos[col], col, board_size);
 					X.rawFitness += consecutivity;
 				}
 				// Find the sum of all the values from 0 to boardsize, that should give
 				// the answer
 				int solutionFitness = (board_size / 2)*(1 + board_size);
 				if (X.rawFitness == solutionFitness){
-					recordSolutionTime(queenPos);
+					recordSolutionTime(queenPos, X);
 				}
 			}
 			break;
@@ -159,7 +169,7 @@ public class NQueens extends FitnessFunction{
 					}
 					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
 				}
-				recordSolutionTime(queenPos);
+				recordSolutionTime(queenPos, X);
 			break;
 		}
 	}
@@ -201,14 +211,16 @@ public class NQueens extends FitnessFunction{
 	}
 
 //	Used when recording a solution to get the time took
-	public static void recordSolutionTime(int[] queenPos){
+	public static void recordSolutionTime(int[] queenPos, Chromo X){
 		if (Search.found_sol == false){
 			// Set boolean & record time
 			Search.found_sol = true;
 			Search.first_sol_time_ns = System.nanoTime();
 			// Save board
+			Search.first_solution_chromo = new int[Parameters.numGenes];
 			Search.first_solution_board = new boolean[Parameters.numGenes][Parameters.numGenes];
 			for(int col = 0; col < Parameters.numGenes; col++){
+				Search.first_solution_chromo[col] = X.chromo[col];
 				Search.first_solution_board[queenPos[col]][col] = true;
 			}
 		}
