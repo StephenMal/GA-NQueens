@@ -77,8 +77,24 @@ public class Parameters
 		parmInput.close();
 
 		// Find scale type
-		if (fitnessFunctionType==1 || fitnessFunctionType==2) minORmax = "min";
-		else minORmax = "max";
+		if (fitnessFunctionType==1 || fitnessFunctionType==2){
+			 minORmax = "min";
+			 if (scaleType == 0){ // Scale
+				 Parameters.scaleType = 1;
+			 }
+			 else{ // Rank
+				 Parameters.scaleType = 3;
+			 }
+		 }
+		else{
+			 minORmax = "max";
+			 if (scaleType == 0){ // Scale
+				 Parameters.scaleType = 0;
+			 }
+			 else{ // Rank
+				 Parameters.scaleType = 2;
+			 }
+		 }
 
 	}
 

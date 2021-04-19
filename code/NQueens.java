@@ -77,7 +77,7 @@ public class NQueens extends FitnessFunction{
 				}
 				// If rawfitness is 0, solution found record it
 				if (X.rawFitness == 0){
-					recordSolutionTime();
+					recordSolutionTime(queenPos);
 				}
 			}
 			break;
@@ -92,7 +92,7 @@ public class NQueens extends FitnessFunction{
 				}
 				// If rawfitness is 0, solution found record it
 				if (X.rawFitness == 0){
-					recordSolutionTime();
+					recordSolutionTime(queenPos);
 				}
 			}
 			break;
@@ -108,7 +108,7 @@ public class NQueens extends FitnessFunction{
 				// If this is true, we have 1 good queen per column and have found
 				// a solution
 				if (X.rawFitness == board_size){
-					recordSolutionTime();
+					recordSolutionTime(queenPos);
 				}
 			}
 			break;
@@ -123,9 +123,9 @@ public class NQueens extends FitnessFunction{
 				}
 				// Find the sum of all the values from 0 to boardsize, that should give
 				// the answer
-				int solutionFitness = (board_size*(board_size-1))/2;
+				int solutionFitness = (board_size / 2)*(1 + board_size);
 				if (X.rawFitness == solutionFitness){
-					recordSolutionTime();
+					recordSolutionTime(queenPos);
 				}
 			}
 			break;
@@ -143,9 +143,9 @@ public class NQueens extends FitnessFunction{
 				}
 				// Find the sum of all the values from 0 to boardsize, that should give
 				// the answer
-				int solutionFitness = (board_size*(board_size-1))/2;
+				int solutionFitness = (board_size / 2)*(1 + board_size);
 				if (X.rawFitness == solutionFitness){
-					recordSolutionTime();
+					recordSolutionTime(queenPos);
 				}
 			}
 			break;
@@ -159,7 +159,7 @@ public class NQueens extends FitnessFunction{
 					}
 					NQueensUtil.placeQueen(chessBoard, usedRow, downDiag, upDiag, row, col, board_size);
 				}
-				recordSolutionTime();
+				recordSolutionTime(queenPos);
 			break;
 		}
 	}
@@ -178,14 +178,12 @@ public class NQueens extends FitnessFunction{
 				// excluding the value directly above it (due to diagnols)
 				Set<Integer> usedSet = new HashSet<Integer>(Parameters.numGenes);
 				int temp;
-				System.out.println(Arrays.toString(X.chromo));
 				for(int geneID = 0; geneID < Parameters.numGenes; geneID++){
 					// If this number has already been used or is too high
 					if (usedSet.contains(X.chromo[geneID]) || X.chromo[geneID] >= Parameters.numGenes){
 						temp = (X.chromo[geneID] + 2) % Parameters.numGenes;
 						while(usedSet.contains(temp)){
 							temp = (temp + 1) % Parameters.numGenes;
-							System.out.println(temp);
 						}
 						queenPos[geneID] = temp;
 						usedSet.add(temp);
@@ -196,8 +194,6 @@ public class NQueens extends FitnessFunction{
 						usedSet.add(X.chromo[geneID]);
 					}
 				}
-				System.out.println(Arrays.toString(queenPos));
-				System.out.println("==============");
 				return;
 			}
 		}
@@ -205,10 +201,16 @@ public class NQueens extends FitnessFunction{
 	}
 
 //	Used when recording a solution to get the time took
-	public static void recordSolutionTime(){
+	public static void recordSolutionTime(int[] queenPos){
 		if (Search.found_sol == false){
+			// Set boolean & record time
 			Search.found_sol = true;
 			Search.first_sol_time_ns = System.nanoTime();
+			// Save board
+			Search.first_solution_board = new boolean[Parameters.numGenes][Parameters.numGenes];
+			for(int col = 0; col < Parameters.numGenes; col++){
+				Search.first_solution_board[queenPos[col]][col] = true;
+			}
 		}
 
 	}
