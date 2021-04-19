@@ -46,6 +46,7 @@ public class Search {
 	public static long first_sol_time_ns;
 	public static long end_time_ns;
 	public static boolean found_sol;
+	public static boolean[][] first_solution_board;
 
 	public static int G;
 	public static int R;
@@ -393,6 +394,7 @@ public class Search {
 		System.out.println("NS Time total: "+(end_time_ns - start_time_ns) + "ns");
 		if (found_sol == true){
 			System.out.println("NS Time until Solution:"+(first_sol_time_ns - start_time_ns) + "ns");
+			NQueensUtil.printBoard(first_solution_board);
 		}
 		else {
 			System.out.println("No solution found");

@@ -266,7 +266,58 @@ public class Chromo
 			}
 			break;
 			case 2:{ // Order
-
+				int xoverPoint1 = Search.r.nextInt(Parameters.numGenes);
+				int xoverPoint2 = Search.r.nextInt(Parameters.numGenes);
+				// Swap values if 2 is before 1
+				if (xoverPoint2 < xoverPoint1){
+					int temp = xoverPoint1;
+					xoverPoint1 = xoverPoint2;
+					xoverPoint2 = temp;
+				}
+				// Record order & perform pass down cross over area
+				// Queues record orderings
+				Queue<Integer> parent1_order = new LinkedList<>();
+				Queue<Integer> parent2_order = new LinkedList<>();
+				// Sets record numbers used already used in cross over zones
+				Set<Integer> child1_set = new HashSet<Integer>(xoverPoint2 - xoverPoint1);
+				Set<Integer> child2_set = new HashSet<Integer>(xoverPoint2 - xoverPoint1);
+				for (int index = 0; index < Parameters.numGenes; index++){
+					int geneID = (xoverPoint2 + index) % Parameters.numGenes;
+					//record ordering
+					parent1_order.add(parent1.chromo[geneID]);
+					parent2_order.add(parent2.chromo[geneID]);
+					// If in crossover point, record cross & add to set
+					if (geneID >= xoverPoint1 && geneID < xoverPoint2){
+						child1.chromo[geneID] = parent1.chromo[geneID];
+						child1_set.add(parent1.chromo[geneID]);
+						child2.chromo[geneID] = parent2.chromo[geneID];
+						child2_set.add(parent2.chromo[geneID]);
+					}
+				}
+				// Fill in child 2
+				int geneID = xoverPoint2;
+				while (parent1_order.peek() != null){
+					// if already exists in the child, skip it
+					if (child2_set.contains(parent1_order.peek())){
+						parent1_order.remove();
+					}
+					else{ // Otherwise place in chromo and increment the index
+						child2.chromo[geneID] = parent1_order.poll();
+						geneID = (geneID + 1) % Parameters.numGenes;
+					}
+				}
+				// Fill in child 1
+				geneID = xoverPoint2;
+				while (parent2_order.peek() != null){
+					// if already exists in the child, skip it
+					if (child1_set.contains(parent2_order.peek())){
+						parent2_order.remove();
+					}
+					else{ // Otherwise place in chromo and increment the index
+						child1.chromo[geneID] = parent2_order.poll();
+						geneID = (geneID + 1) % Parameters.numGenes;
+					}
+				}
 			}
 			break;
 			case 3:{ // Order-based
