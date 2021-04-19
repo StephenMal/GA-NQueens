@@ -37,7 +37,6 @@ public class Parameters
 
 	public static long seed;
 	public static int numGenes;
-	public static int geneSize;
 
 // New parameters
 	public static int valueRepresentation;
@@ -71,7 +70,6 @@ public class Parameters
 
 		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
 		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
 
 		fitnessFunctionType = Integer.parseInt(parmInput.readLine().substring(30).trim());
@@ -79,8 +77,8 @@ public class Parameters
 		parmInput.close();
 
 		// Find scale type
-		if (scaleType==0 || scaleType==2) minORmax = "max";
-		else minORmax = "min";
+		if (fitnessFunctionType==1 || fitnessFunctionType==2) minORmax = "min";
+		else minORmax = "max";
 
 	}
 
@@ -118,7 +116,7 @@ public class Parameters
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
 		output.write("Size of Genes                :  " + geneSize + "\n");
 
-		output.write("Value Representation         :  ") + valueRepresentation + "\n");
+		output.write("Value Representation         :  " + valueRepresentation + "\n");
 		output.write("Fitness Function Type        :  " + fitnessFunctionType + "\n");
 
 		output.write("\n\n");

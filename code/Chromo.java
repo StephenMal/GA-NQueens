@@ -65,14 +65,6 @@ public class Chromo
 *                                MEMBER METHODS                                *
 *******************************************************************************/
 
-
-	//  Get Alpha (binary string) Represenation of a Gene
-	public String getGeneAlpha(int geneID){
-
-		return intToBinaryStr(this.chromo[geneID]);
-
-	}
-
 	// Get Gene Value
 	public int getGeneInt(int geneID){
 
@@ -257,23 +249,6 @@ public class Chromo
 		targetA.sclFitness = sourceB.sclFitness;
 		targetA.proFitness = sourceB.proFitness;
 		return;
-	}
-
-	// Change an integer value into a binary string of gene size (pads w/ 0s)
-	public static String intToBinaryStr(int value){
-		return String.format("%" + Parameters.geneSize + "s", Integer.toBinaryString(value)).replaceAll(" ", "0");
-	}
-
-	// Change binary string into a positive integer value
-	public static int binaryStrToPosInt(String binaryStr){
-		int geneValue;
-		char geneBit;
-		geneValue = 0;
-		for (int i=Parameters.geneSize-1; i>=0; i--){
-			geneBit = binaryStr.charAt(i);
-			if (geneBit == '1') geneValue = geneValue + (int) Math.pow(2.0, Parameters.geneSize-i-1);
-		}
-		return (geneValue);
 	}
 
 }   // End of Chromo.java ******************************************************
