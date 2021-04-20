@@ -17,6 +17,7 @@ public class Chromo
 	public double rawFitness;
 	public double sclFitness;
 	public double proFitness;
+	public static boolean testCode = false;
 
 /*******************************************************************************
 *                            INSTANCE VARIABLES                                *
@@ -189,7 +190,12 @@ public class Chromo
 /*******************************************************************************
 *                             STATIC METHODS                                   *
 *******************************************************************************/
-
+		public static void printChromo(Chromo X){
+			for (int geneID = 0; geneID < Parameters.numGenes; geneID++){
+				System.out.print(X.chromo[geneID] + " ");
+			}
+			System.out.println("");
+		}
 	//  Select a parent for crossover
 	public static int selectParent(){
 
@@ -259,10 +265,72 @@ public class Chromo
 	//  Produce a new child from two parents
 	public static void mateParents(int pnum1, int pnum2, Chromo parent1, Chromo parent2, Chromo child1, Chromo child2){
 
+		if(testCode){
+			System.out.println("Parents");
+			printChromo(parent1);
+			printChromo(parent2);
+		}
 		// Find crossover type from parameters
 		switch(Parameters.xoverType){
-			case 1:{ // Partially Mapped
+			case 1:{ // Partially Mapped: PMX
+				int xoverPoint1 = Search.r.nextInt(Parameters.numGenes);
+				int xoverPoint2 = Search.r.nextInt(Parameters.numGenes);
+				// Swap values if 2 is before 1
+				if (xoverPoint2 < xoverPoint1){
+					int temp = xoverPoint1;
+					xoverPoint1 = xoverPoint2;
+					xoverPoint2 = temp;
+				}
+				// System.out.println("XP1: " + xoverPoint1 + ", XP2: " + xoverPoint2);
+				// Map to keep track of maped pair of two parents
+				HashMap<Integer, Integer> map1 = new HashMap<Integer, Integer>();
+				HashMap<Integer, Integer> map2 = new HashMap<Integer, Integer>();
+				// Keep track of the numbers already included in the offspring
+				Set<Integer> child1_set = new HashSet<Integer>(Parameters.numGenes);
+				Set<Integer> child2_set = new HashSet<Integer>(Parameters.numGenes);
 
+				// Add xp1 to xp2 portion into the offscprings and generate the mapping
+				for (int index = xoverPoint1; index <= xoverPoint2; index++){
+					map1.put(parent1.chromo[index], parent2.chromo[index]);
+					map2.put(parent2.chromo[index], parent1.chromo[index]);
+
+					child1.chromo[index] = parent2.chromo[index];
+					child1_set.add(parent2.chromo[index]);
+					child2.chromo[index] = parent1.chromo[index];
+					child2_set.add(parent1.chromo[index]);
+				}
+
+				// Populate rest of the values in the offsprings
+				for (int index = 0; index < Parameters.numGenes; index++){
+					if (index >= xoverPoint1 && index <= xoverPoint2)
+						continue;
+
+					// Populate values for child 1
+					if (child1_set.contains(parent1.chromo[index])) {
+						int cur_val = parent1.chromo[index];
+						while(child1_set.contains(cur_val)){
+							cur_val = map2.get(cur_val);
+						}
+						child1.chromo[index] = cur_val;
+						child1_set.add(cur_val);
+					}
+					else {
+						child1.chromo[index] = parent1.chromo[index];
+					}
+
+					// Populate values for child 2
+					if (child2_set.contains(parent2.chromo[index])) {
+						int cur_val = parent2.chromo[index];
+						while(child2_set.contains(cur_val)){
+							cur_val = map1.get(cur_val);
+						}
+						child2.chromo[index] = cur_val;
+						child2_set.add(cur_val);
+					}
+					else {
+						child2.chromo[index] = parent2.chromo[index];
+					}
+				}
 			}
 			break;
 			case 2:{ // Order
@@ -274,6 +342,7 @@ public class Chromo
 					xoverPoint1 = xoverPoint2;
 					xoverPoint2 = temp;
 				}
+				// System.out.println("XP1: " + xoverPoint1 + ", XP2: " + xoverPoint2);
 				// Record order & perform pass down cross over area
 				// Queues record orderings
 				Queue<Integer> parent1_order = new LinkedList<>();
@@ -320,16 +389,166 @@ public class Chromo
 				}
 			}
 			break;
-			case 3:{ // Order-based
+			case 3:{ // Order-based: OX2
+				// How many random indices to select
+				int k = Search.r.nextInt(Parameters.numGenes) + 1;
+				// Get the random positions
+				ArrayList<Integer> positionList = new ArrayList<Integer>();
+				for (int i = 0; i<k; i++){
+					int ran = Search.r.nextInt(Parameters.numGenes);
+					if(!positionList.contains(ran))
+						positionList.add(ran);
+				}
+				k = positionList.size();
+				Collections.sort(positionList);
+				// Collect genes from the random positions
+				ArrayList<Integer> itemList1 = new ArrayList<Integer>();
+				ArrayList<Integer> itemList2 = new ArrayList<Integer>();
+				for (int i = 0; i<k; i++){
+					itemList1.add(parent1.chromo[positionList.get(i)]);
+					itemList2.add(parent2.chromo[positionList.get(i)]);
+				}
 
+				// Generate offsprings
+				int i1 = 0;
+				int i2 = 0;
+				for (int index = 0; index < Parameters.numGenes; index++){
+					if (!itemList2.contains(parent1.chromo[index])){
+						child1.chromo[index] = parent1.chromo[index];
+					}
+					else{
+						child1.chromo[index] = itemList2.get(i2++);
+					}
+
+					if (!itemList1.contains(parent2.chromo[index])){
+						child2.chromo[index] = parent2.chromo[index];
+					}
+					else{
+						child2.chromo[index] = itemList1.get(i1++);
+					}
+				}
 			}
 			break;
-			case 4:{ // Position-Based
+			case 4:{ // Position-Based: POS
+				// How many random indices to select
+				int k = Search.r.nextInt(Parameters.numGenes) + 1;
+				// Get the random positions
+				ArrayList<Integer> positionList = new ArrayList<Integer>();
+				for (int i = 0; i<k; i++){
+					int ran = Search.r.nextInt(Parameters.numGenes);
+					if(!positionList.contains(ran))
+						positionList.add(ran);
+				}
+				k = positionList.size();
+				Collections.sort(positionList);
+				// System.out.println(k + " random positions: " + positionList);
+				// Collect genes from the random positions
+				ArrayList<Integer> itemList1 = new ArrayList<Integer>();
+				ArrayList<Integer> itemList2 = new ArrayList<Integer>();
+				for (int i = 0; i<k; i++){
+					itemList1.add(parent1.chromo[positionList.get(i)]);
+					itemList2.add(parent2.chromo[positionList.get(i)]);
+				}
+				ArrayList<Integer> remainingItemList1 = new ArrayList<Integer>();
+				ArrayList<Integer> remainingItemList2 = new ArrayList<Integer>();
+				for (int index = 0; index < Parameters.numGenes; index++){
+					if(!positionList.contains(index)){
+						remainingItemList1.add(parent1.chromo[index]);
+						remainingItemList2.add(parent2.chromo[index]);
+					}
+				}
 
+				// Generate offsprings
+				int i1 = 0;
+				int i2 = 0;
+				for (int index = 0; index < Parameters.numGenes; index++){
+					if(positionList.contains(index)){
+						child1.chromo[index] = parent2.chromo[index];
+						child2.chromo[index] = parent1.chromo[index];
+					}
+					else{
+						child1.chromo[index] = remainingItemList1.get(i1++);
+						child2.chromo[index] = remainingItemList2.get(i2++);
+					}
+				}
 			}
 			break;
-			case 5:{ // Cycle Crossover
+			case 5:{ // Cycle Crossover: CX
+				// Inspired from https://codereview.stackexchange.com/questions/226179/easiest-way-to-implement-cycle-crossover
+				boolean swap = true;	// To swap the source parent
+				int count = 0;				// Keep track of taken genes
+				int position = 0;			// Keep track of current position
+				ArrayList<Integer> p1List = new ArrayList<Integer>();		//One copy of parent1
+				ArrayList<Integer> p2List = new ArrayList<Integer>();		//One copy of parent2
+				ArrayList<Integer> par1List = new ArrayList<Integer>();	//Another copy of parent1
+				ArrayList<Integer> par2List = new ArrayList<Integer>();	//Another copy of parent2
 
+				for(int index = 0; index < Parameters.numGenes; index++){
+					child1.chromo[index] = -1;														// Initialize all gene to -1
+					p1List.add(parent1.chromo[index]);
+					par1List.add(parent1.chromo[index]);
+					p2List.add(parent2.chromo[index]);
+					par2List.add(parent2.chromo[index]);
+				}
+
+				while(true){
+					if(count > Parameters.numGenes)
+						break;
+
+					// Get first index to start the cycle
+					for(int index = 0; index < Parameters.numGenes; index++){
+						if(child1.chromo[index] == -1){
+							position = index;
+							break;
+						}
+					}
+					// start cycle from parent1
+					if(swap){
+						while(true){
+							child1.chromo[position] = parent1.chromo[position];
+							count++;
+							position = par2List.indexOf(parent1.chromo[position]);
+							if(p1List.get(position) == -1){
+								swap = false;
+								break;
+							}
+							p1List.set(position, -1);
+						}
+					}
+					// start cycle from parent2
+					else{
+						while(true){
+							child1.chromo[position] = parent2.chromo[position];
+							count++;
+							position = par1List.indexOf(parent2.chromo[position]);
+							if (p2List.get(position) == -1){
+								swap = true;
+								break;
+							}
+							p2List.set(position, -1);
+						}
+					}
+				}
+				// Populate child2
+				for(int index = 0; index < Parameters.numGenes; index++){
+					if(child1.chromo[index] == parent1.chromo[index]){
+						child2.chromo[index] = parent2.chromo[index];
+					}
+					else{
+						child2.chromo[index] = parent1.chromo[index];
+					}
+				}
+				// Special case
+				for(int index = 0; index < Parameters.numGenes; index++){
+					if(child1.chromo[index] == -1){
+						if(p1List.get(index) == -1){										// the ith gene from p1 has been already transfered
+							child1.chromo[index] = parent2.chromo[index];
+						}
+						else{
+							child1.chromo[index] = parent1.chromo[index];
+						}
+					}
+				}
 			}
 			break;
 			case 6:{ // Single Point (would need key rep)
@@ -387,6 +606,12 @@ public class Chromo
 				}
 			}
 			break;
+		}
+
+		if (testCode){
+			System.out.println("Offsprings");
+			printChromo(child1);
+			printChromo(child2);
 		}
 
 		//  Set fitness values back to zero
