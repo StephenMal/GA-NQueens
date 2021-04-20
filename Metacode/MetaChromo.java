@@ -37,36 +37,34 @@ public class MetaChromo {
 		this.minGene = new int[MetaParameters.numGenes];
 		this.maxGene = new int[MetaParameters.numGenes];
 
-		// 0: Generations Per Run (10 - 1000)
+
+		// 0: Population Size (10 - 1000)
 		this.minGene[0] = 10;
 		this.maxGene[0] = 1000;
-		// 1: Population Size (10 - 1000)
-		this.minGene[1] = 10;
-		this.maxGene[1] = 1000;
-		// 2: Selection Method (1 - 5)
-		this.minGene[2] = 1;
-		this.maxGene[2] = 5;
-		// 3: Fitness Scaling Type (0 - 1)
-		this.minGene[3] = 0;
-		this.maxGene[3] = 1;
-		// 4: Crossover Type (1 - 9)
-		this.minGene[4] = 1;
-		this.maxGene[4] = 9;
-		// 5: Crossover Rate (0 - 1000)
-		this.minGene[5] = 0;
-		this.maxGene[5] = 1000;
-		// 6: Mutation Type (1-8)
-		this.minGene[6] = 1;
-		this.maxGene[6] = 8;
-		// 7: Mutation Rate (0 - 1000)
-		this.minGene[7] = 0;
-		this.maxGene[7] = 1000;
-		// 8: Rep Type (1 - 2)
+		// 1: Selection Method (1 - 5)
+		this.minGene[1] = 1;
+		this.maxGene[1] = 5;
+		// 2: Fitness Scaling Type (0 - 1)
+		this.minGene[2] = 0;
+		this.maxGene[2] = 1;
+		// 3: Crossover Type (1 - 9)
+		this.minGene[3] = 1;
+		this.maxGene[3] = 9;
+		// 4: Crossover Rate (0 - 1000)
+		this.minGene[4] = 0;
+		this.maxGene[4] = 1000;
+		// 5: Mutation Type (1-8)
+		this.minGene[5] = 1;
+		this.maxGene[5] = 8;
+		// 6: Mutation Rate (0 - 1000)
+		this.minGene[6] = 0;
+		this.maxGene[6] = 1000;
+		// 7: Rep Type (1 - 2)
+		this.minGene[7] = 1;
+		this.maxGene[7] = 2;
+		// 8 Fitness Function (1 - 6)
 		this.minGene[8] = 1;
-		this.maxGene[8] = 2;
-		// 9 Fitness Function (1 - 6)
-		this.minGene[9] = 1;
-		this.maxGene[9] = 6;
+		this.maxGene[8] = 6;
 
 
 		// Create the chromosome
@@ -118,10 +116,19 @@ public class MetaChromo {
 
 	public void doMutation() {
 		// Switch to different mutation types dependent on the parameters
-		for (int geneID = 0; geneID < MetaParameters.numGenes; geneID++){
-			if (MetaSearch.r.nextDouble() < MetaParameters.mutationRate){
-				this.generateGene(geneID);
+		switch(MetaParameters.mutationType){
+		case 1:{
+			for (int geneID = 0; geneID < MetaParameters.numGenes; geneID++){
+				if (MetaSearch.r.nextDouble() < MetaParameters.mutationRate){
+					this.generateGene(geneID);
+				}
 			}
+		}
+		break;
+		case 2:{
+
+		}
+		break;
 		}
 	}
 
@@ -211,26 +218,48 @@ public class MetaChromo {
 			printChromo(parent2);
 		}
 
-		int xoverPoint1, xoverPoint2, len = parent1.chromo.length;
-		xoverPoint1 = 1 + (int) (Search.r.nextDouble() * (MetaParameters.numGenes));
-		xoverPoint2 = 1 + (int) (Search.r.nextDouble() * (MetaParameters.numGenes));
-			if (xoverPoint1 > xoverPoint2) {
-			int temp = xoverPoint1;
-			xoverPoint1 = xoverPoint2;
-			xoverPoint2 = temp;
+		switch(MetaParameters.xoverType){
+		case 1:{ // 2D crossover
+			int xoverPoint1, xoverPoint2, len = parent1.chromo.length;
+			xoverPoint1 = 1 + (int) (Search.r.nextDouble() * (MetaParameters.numGenes));
+			xoverPoint2 = 1 + (int) (Search.r.nextDouble() * (MetaParameters.numGenes));
+				if (xoverPoint1 > xoverPoint2) {
+				int temp = xoverPoint1;
+				xoverPoint1 = xoverPoint2;
+				xoverPoint2 = temp;
+			}
+			// Create child chromosomes from parent genes
+			for (int i = 0; i < xoverPoint1; i++) {
+				child1.chromo[i] = parent1.chromo[i];
+				child2.chromo[i] = parent2.chromo[i];
+			}
+			for (int i = xoverPoint1; i < xoverPoint2; i++) {
+				child1.chromo[i] = parent2.chromo[i];
+				child2.chromo[i] = parent1.chromo[i];
+			}
+			for (int i = xoverPoint2; i < len; i++) {
+				child1.chromo[i] = parent1.chromo[i];
+				child2.chromo[i] = parent2.chromo[i];
+			}
 		}
-		// Create child chromosomes from parent genes
-		for (int i = 0; i < xoverPoint1; i++) {
-			child1.chromo[i] = parent1.chromo[i];
-			child2.chromo[i] = parent2.chromo[i];
+		break;
+		case 2:{ // Integer uniform crossover
+			for (int geneID = 0; geneID < MetaParameters.numGenes; geneID++){
+				// See if we should mutate
+				if (MetaSearch.r.nextDouble() < MetaParameters.mutationRate){
+					// 50-50 chance of parent giving to either child
+					if (MetaSearch.r.nextDouble() < MetaParameters.mutationRate){
+						child1.chromo[geneID] = parent1.chromo[geneID];
+						child2.chromo[geneID] = parent2.chromo[geneID];
+					}
+					else {
+						child2.chromo[geneID] = parent1.chromo[geneID];
+						child1.chromo[geneID] = parent2.chromo[geneID];
+					}
+				}
+			}
 		}
-		for (int i = xoverPoint1; i < xoverPoint2; i++) {
-			child1.chromo[i] = parent2.chromo[i];
-			child2.chromo[i] = parent1.chromo[i];
-		}
-		for (int i = xoverPoint2; i < len; i++) {
-			child1.chromo[i] = parent1.chromo[i];
-			child2.chromo[i] = parent2.chromo[i];
+		break;
 		}
 		// Set fitness values back to zero
 		child1.rawFitness = -1; // Fitness not yet evaluated
