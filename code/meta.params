@@ -1,0 +1,14 @@
+Experiment ID                :Meta NQueens
+Problem Type                 :MNQ
+Data Input File Name         :NA
+Number of Runs               :5
+Generations per Run          :500
+Population Size              :1000
+Selection Method (1)         :4
+Fitness Scaling Type (2)     :0
+Crossover Type (3)           :2
+Crossover Rate (4)           :0.3
+Mutation Type (5)            :0
+Mutation Rate (6)            :0.15
+Random Number Seed           :75982
+Number of Genes(# params)(7) :10
