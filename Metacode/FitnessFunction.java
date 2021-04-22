@@ -25,7 +25,7 @@ class FitnessFunction{
 
 	public FitnessFunction() {
 
-		System.out.print("Setting up Fitness Function.....");
+		//System.out.print("Setting up Fitness Function.....");
 
 	}
 

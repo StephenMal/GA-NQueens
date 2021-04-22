@@ -159,4 +159,56 @@ public class NQueensUtil{
 		System.out.println("Board verified");
 		return true;
 	}
+
+	// same as above no print statements
+	public static boolean validateSolutionQuietly(boolean chessBoard[][]){
+		int board_size = chessBoard.length;
+		// verify square shape and only one queen per row
+		for(int row = 0; row < board_size; row++){
+			// Check each column length to see it is the same as row length
+			if (chessBoard[row].length != board_size){
+				System.out.println("Board size inconsistent");
+				return false;
+			}
+			// Verify only one queen per row
+			boolean rowUsed = false;
+			// iterate through the columns of that row
+			for(int col = 0; col < board_size; col++){
+				// If queen is present
+				if (chessBoard[row][col] == true){
+					// See if a queen has already been in that row
+					if (rowUsed == true){
+						System.out.println("Board contains two queens on row " + row);
+						return false;
+					}
+					// Otherwise set this row to used
+					rowUsed = true;
+				}
+			}
+		}
+
+		// Verify Diagnols, first find the queens
+		for(int row = 0; row < board_size; row++){
+			for(int col = 0; col < board_size; col++){
+				if (chessBoard[row][col] == true){
+					int i, j;
+					// Check upward diagonal on left side
+					for (i = row, j = col; i >= 0 && j >= 0; i--, j--){
+						if (chessBoard[i][j] == true && i != row && j != col){
+							System.out.println("Board contains two queens in same diagnol: (" + i +"," + j + ") and (" + row + "," + col + ")");
+							return false;
+						}
+					}
+					// Check downward diagonal on left side
+					for (i = row, j = col; j >= 0 && i < board_size; i++, j--){
+						if (chessBoard[i][j] == true && i != row && j != col){
+							System.out.println("Board contains two queens in same diagnol: (" + i +"," + j + ") and (" + row + "," + col + ")");
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
 }

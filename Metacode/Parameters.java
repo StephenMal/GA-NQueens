@@ -98,69 +98,6 @@ public class Parameters
 
 	}
 
-	public Parameters(String parmfilename, MetaChromo X) throws java.io.IOException{
-		String readLine;
-		BufferedReader parmInput = new BufferedReader(new FileReader (parmfilename));
-
-		// Read in the file for the values
-
-		expID = parmInput.readLine().substring(30);
-		problemType = parmInput.readLine().substring(30);
-
-		dataInputFileName = parmInput.readLine().substring(30);
-
-		numRuns = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		generations = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		popSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
-
-		selectType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		scaleType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-
-		xoverType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		xoverRate = Double.parseDouble(parmInput.readLine().substring(30).trim());
-		mutationType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		mutationRate = Double.parseDouble(parmInput.readLine().substring(30).trim());
-
-		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
-		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
-
-		valueRepresentation = Integer.parseInt(parmInput.readLine().substring(30).trim());
-		fitnessFunctionType = Integer.parseInt(parmInput.readLine().substring(30).trim());
-
-		parmInput.close();
-
-		// Override with MetaChromo data
-		popSize = X.chromo[0];
-		selectType = X.chromo[1];
-		scaleType = X.chromo[2];
-		xoverType = X.chromo[3];
-		xoverRate = X.chromo[4];
-		mutationType = X.chromo[5];
-		mutationRate = X.chromo[6];
-		valueRepresentation = X.chromo[7];
-		fitnessFunctionType = X.chromo[8];
-
-		// Find scale type
-		if (fitnessFunctionType==1 || fitnessFunctionType==2){
-			 minORmax = "min";
-			 if (scaleType == 0){ // Scale
-				 scaleType = 1;
-			 }
-			 else{ // Rank
-				 scaleType = 3;
-			 }
-		 }
-		else{
-			 minORmax = "max";
-			 if (scaleType == 0){ // Scale
-				 scaleType = 0;
-			 }
-			 else{ // Rank
-				 scaleType = 2;
-			 }
-		 }
-
-	}
 /*******************************************************************************
 *                                MEMBER METHODS                                *
 *******************************************************************************/

@@ -215,7 +215,7 @@ public class NQueens extends FitnessFunction{
 		if (Search.found_sol == false){
 			// Set boolean & record time
 			Search.found_sol = true;
-			Search.first_sol_time_ns = System.nanoTime() - Search.start_time_ns;
+			Search.first_sol_time_ns = System.nanoTime();
 			// Save board
 			Search.first_solution_chromo = new int[Parameters.numGenes];
 			Search.first_solution_board = new boolean[Parameters.numGenes][Parameters.numGenes];
@@ -223,7 +223,48 @@ public class NQueens extends FitnessFunction{
 				Search.first_solution_chromo[col] = X.chromo[col];
 				Search.first_solution_board[queenPos[col]][col] = true;
 			}
+			if (NQueensUtil.validateSolutionQuietly(Search.first_solution_board)){
+				try{
+					recordBadSolution(X);
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+			else{
+				try{
+					recordToResultsCSV(X);
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}
 		}
+
+	}
+
+	public static void recordToResultsCSV(Chromo X) throws IOException{
+		// Open results.csv
+		FileWriter fw = new FileWriter("results.csv",true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		// Generate output string
+		String output = String.valueOf(Search.first_sol_time_ns-Search.start_time_ns)+ "," + Search.curGen + "," + Parameters.numGenes + "," + Parameters.popSize + "," + Parameters.selectType + "," + Parameters.scaleType + "," + Parameters.xoverType + "," + Parameters.xoverRate + "," + Parameters.mutationType + "," + Parameters.mutationRate + "," + Parameters.valueRepresentation + "," + Parameters.fitnessFunctionType + "," + Arrays.toString(X.chromo) + ",";
+		// Write it
+		bw.write(output);
+		bw.newLine();
+		bw.close();
+	}
+
+	public static void recordBadSolution(Chromo X) throws IOException{
+		// Open results.csv
+		FileWriter fw = new FileWriter("badOutputs.csv",true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		// Generate output string
+		String output = String.valueOf(Search.first_sol_time_ns-Search.start_time_ns)+ "," + Search.curGen + "," + Parameters.numGenes + "," + Parameters.popSize + "," + Parameters.selectType + "," + Parameters.scaleType + "," + Parameters.xoverType + "," + Parameters.xoverRate + "," + Parameters.mutationType + "," + Parameters.mutationRate + "," + Parameters.valueRepresentation + "," + Parameters.fitnessFunctionType + "," + Arrays.toString(X.chromo) + ",";
+		// Write it
+		bw.write(output);
+		bw.newLine();
+		bw.close();
 
 	}
 

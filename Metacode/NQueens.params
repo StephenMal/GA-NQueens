@@ -8,10 +8,10 @@ Selection Method (1)         :5
 Fitness Scaling Type (2)     :0
 Crossover Type (3)           :2
 Crossover Rate (4)           :0.3
-Mutation Type (5)            :7
+Mutation Type (5)            :8
 Mutation Rate (6)            :0.15
 Random Number Seed           :75982
-Number of Genes(# queens)(7) :30
+Number of Genes(# queens)(7) :6
 Gene Value Rep  (8)          :1
 Fitness Function  (9)        :2
 

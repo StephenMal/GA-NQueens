@@ -18,7 +18,6 @@ public class Search {
 *******************************************************************************/
 
 	public static FitnessFunction problem;
-	public static MetaChromo currentMeta;
 
 	public static Chromo[] member;
 	public static Chromo[] child;
@@ -45,12 +44,11 @@ public class Search {
 
 	public static long start_time_ns;
 	public static long first_sol_time_ns;
-	public static long dur_till_found;
 	public static long end_time_ns;
-	public static long dur_of_run;
 	public static boolean found_sol;
 	public static int[] first_solution_chromo;
 	public static boolean[][] first_solution_board;
+	public static int curGen;
 
 	public static int G;
 	public static int R;
@@ -83,18 +81,15 @@ public class Search {
 		// Record starting time & data tracking variables
 		Calendar dateAndTime = Calendar.getInstance();
 		Date startTime = dateAndTime.getTime();
-		start_time_ns = System.nanoTime();
-		first_sol_time_ns = -1;
-		found_sol = false;
 
 	//  Read Parameter File
-		System.out.println("\nParameter File Name is: " + args[0] + "\n");
-		Parameters parmValues = new Parameters(args[0], currentMeta);
+		//System.out.println("\nParameter File Name is: " + args[0] + "\n");
+		Parameters parmValues = new Parameters(args[0]);
 
 	//  Write Parameters To Summary Output File
-		String summaryFileName = Parameters.expID + "_summary " + Integer.toString(MetaSearch.numberOfNQueenRuns) + ".txt";
+		String summaryFileName = Parameters.expID + "_summary.txt";
 		FileWriter summaryOutput = new FileWriter(summaryFileName);
-		parmValues.outputParameters(summaryOutput);
+		//parmValues.outputParameters(summaryOutput);
 
 	//	Set up Fitness Statistics matrix
 		fitnessStats = new double[2][Parameters.generations];
@@ -111,6 +106,8 @@ public class Search {
 				problem = new NQueens();
 		}
 		else System.out.println("Invalid Problem Type");
+
+		//System.out.println(problem.name);
 
 	//	Initialize RNG, array sizes and other objects
 		r.setSeed(Parameters.seed);
@@ -136,7 +133,12 @@ public class Search {
 		//  Start program for multiple runs
 		for (R = 1; R <= Parameters.numRuns; R++){
 
+			start_time_ns = System.nanoTime();
+			first_sol_time_ns = -1;
+			found_sol = false;
+
 			bestOfRunChromo.rawFitness = defaultBest;
+			//System.out.println();
 
 			//	Initialize First Generation
 			for (int i=0; i<Parameters.popSize; i++){
@@ -146,6 +148,10 @@ public class Search {
 
 			//	Begin Each Run
 			for (G=0; G<Parameters.generations; G++){
+				curGen = G;
+				if (found_sol == true){
+					break;
+				}
 
 				sumProFitness = 0;
 				sumSclFitness = 0;
@@ -214,7 +220,11 @@ public class Search {
 							(Parameters.popSize-1)
 							);
 
+				// Output generation statistics to screen
+				//System.out.println(R + "\t" + G +  "\t" + (int)bestOfGenChromo.rawFitness + "\t" + averageRawFitness + "\t" + stdevRawFitness);
+
 				// Output generation statistics to summary file
+				/*
 				summaryOutput.write(" R ");
 				Hwrite.right(R, 3, summaryOutput);
 				summaryOutput.write(" G ");
@@ -223,6 +233,7 @@ public class Search {
 				Hwrite.right(averageRawFitness, 11, 3, summaryOutput);
 				Hwrite.right(stdevRawFitness, 11, 3, summaryOutput);
 				summaryOutput.write("\n");
+				*/
 
 
 		// *********************************************************************
@@ -355,19 +366,20 @@ public class Search {
 
 			} //  Repeat the above loop for each generation
 
+			/*
 			Hwrite.left(bestOfRunR, 4, summaryOutput);
 			Hwrite.right(bestOfRunG, 4, summaryOutput);
 
 			problem.doPrintGenes(bestOfRunChromo, summaryOutput);
 
 			System.out.println(R + "\t" + "B" + "\t"+ (int)bestOfRunChromo.rawFitness);
+			*/
 
 		} //End of a Run
 		// End NS timers
-		end_time_ns = System.nanoTime();
-		dur_of_run = start_time_ns - end_time_ns;
+		long end_time_ns = System.nanoTime();
 
-
+		/*
 		Hwrite.left("B", 8, summaryOutput);
 
 		problem.doPrintGenes(bestOverAllChromo, summaryOutput);
@@ -382,24 +394,25 @@ public class Search {
 		}
 
 		summaryOutput.write("\n");
+		*/
 		summaryOutput.close();
 
-		System.out.println();
-		System.out.println("Start:  " + startTime);
+		//System.out.println();
+		//System.out.println("Start:  " + startTime);
 		dateAndTime = Calendar.getInstance();
 		Date endTime = dateAndTime.getTime();
-		System.out.println("End  :  " + endTime);
+		//System.out.println("End  :  " + endTime);
 
-		System.out.println("Nanosecond Time (N = " + Parameters.numGenes + ")");
-		System.out.println("NS Time total: " + dur_of_run + "ns");
+		//System.out.println("Nanosecond Time (N = " + Parameters.numGenes + ")");
+		//System.out.println("NS Time total: "+(end_time_ns - start_time_ns) + "ns");
 		if (found_sol == true){
-			System.out.println("NS Time until Solution: "+(first_sol_time_ns - start_time_ns) + "ns");
-			System.out.println("Representation: " + Parameters.valueRepresentation);
-			System.out.println("Chromo: " + Arrays.toString(first_solution_chromo));
-			NQueensUtilDebugTool.debugPrintBoard(first_solution_board);
+			//System.out.println("NS Time until Solution: "+(first_sol_time_ns - start_time_ns) + "ns");
+			//System.out.println("Representation: " + Parameters.valueRepresentation);
+			//System.out.println("Chromo: " + Arrays.toString(first_solution_chromo));
+			//NQueensUtilDebugTool.debugPrintBoard(first_solution_board);
 		}
 		else {
-			System.out.println("No solution found");
+			//System.out.println("No solution found");
 		}
 	} // End of Main Class
 
