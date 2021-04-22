@@ -43,7 +43,7 @@ public class MetaParameters
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
 
-	public Parameters(String parmfilename) throws java.io.IOException{
+	public MetaParameters(String parmfilename) throws java.io.IOException{
 
 		String readLine;
 		BufferedReader parmInput = new BufferedReader(new FileReader (parmfilename));
@@ -73,7 +73,7 @@ public class MetaParameters
 		if (scaleType==0 || scaleType==2) minORmax = "max";
 		else minORmax = "min";
 
-		
+
 
 	}
 

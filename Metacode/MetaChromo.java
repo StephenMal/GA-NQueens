@@ -31,7 +31,7 @@ public class MetaChromo {
 	 * CONSTRUCTORS *
 	 *******************************************************************************/
 
-	public Chromo() {
+	public MetaChromo() {
 
 		// Create gene boundaries
 		this.minGene = new int[MetaParameters.numGenes];

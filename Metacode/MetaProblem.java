@@ -34,9 +34,30 @@ public class MetaProblem extends FitnessFunction{
 //  COMPUTE A CHROMOSOME'S RAW FITNESS
 
 	public void doRawFitness(MetaChromo X){
-		Parameters.
-		Search.
+
+		// Increment number of queens we have ran
+		//	(So we can print each run summaries)
+		MetaSearch.numberOfNQueenRuns++;
+		// Put this current Meta Chromosome in the nqueens search
+		Search.currentMeta = X;
+		// Run the search
+		String[] arguments = new String[] {"NQueens.params"};
+		Search.main(arguments);
+
+		// If it was able to find a solution, set to how long it took
+		if(Search.found_sol == true){
+			X.rawFitness = Search.first_sol_time_ns;
+			if(NQueensUtilDebugTool.validateSolution(Search.first_solution_board) == false){
+				System.out.println("Invalid solution marked as correct");
+			}
+		}
+		else{ // Otherwise punish for no solution
+			// Punish by multiplying the time it took by 10
+			X.rawFitness = 10 * Search.dur_of_run;
+		}
 	}
+
+
 
 //	PRINT CHROMOSOME
 	public static void printChromo(MetaChromo X){

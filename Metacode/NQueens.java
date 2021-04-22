@@ -215,7 +215,7 @@ public class NQueens extends FitnessFunction{
 		if (Search.found_sol == false){
 			// Set boolean & record time
 			Search.found_sol = true;
-			Search.first_sol_time_ns = System.nanoTime();
+			Search.first_sol_time_ns = System.nanoTime() - Search.start_time_ns;
 			// Save board
 			Search.first_solution_chromo = new int[Parameters.numGenes];
 			Search.first_solution_board = new boolean[Parameters.numGenes][Parameters.numGenes];

@@ -18,6 +18,7 @@ public class Search {
 *******************************************************************************/
 
 	public static FitnessFunction problem;
+	public static MetaChromo currentMeta;
 
 	public static Chromo[] member;
 	public static Chromo[] child;
@@ -44,7 +45,9 @@ public class Search {
 
 	public static long start_time_ns;
 	public static long first_sol_time_ns;
+	public static long dur_till_found;
 	public static long end_time_ns;
+	public static long dur_of_run;
 	public static boolean found_sol;
 	public static int[] first_solution_chromo;
 	public static boolean[][] first_solution_board;
@@ -86,10 +89,10 @@ public class Search {
 
 	//  Read Parameter File
 		System.out.println("\nParameter File Name is: " + args[0] + "\n");
-		Parameters parmValues = new Parameters(args[0]);
+		Parameters parmValues = new Parameters(args[0], currentMeta);
 
 	//  Write Parameters To Summary Output File
-		String summaryFileName = Parameters.expID + "_summary.txt";
+		String summaryFileName = Parameters.expID + "_summary " + Integer.toString(MetaSearch.numberOfNQueenRuns) + ".txt";
 		FileWriter summaryOutput = new FileWriter(summaryFileName);
 		parmValues.outputParameters(summaryOutput);
 
@@ -108,8 +111,6 @@ public class Search {
 				problem = new NQueens();
 		}
 		else System.out.println("Invalid Problem Type");
-
-		System.out.println(problem.name);
 
 	//	Initialize RNG, array sizes and other objects
 		r.setSeed(Parameters.seed);
@@ -136,7 +137,6 @@ public class Search {
 		for (R = 1; R <= Parameters.numRuns; R++){
 
 			bestOfRunChromo.rawFitness = defaultBest;
-			System.out.println();
 
 			//	Initialize First Generation
 			for (int i=0; i<Parameters.popSize; i++){
@@ -213,9 +213,6 @@ public class Search {
 							/
 							(Parameters.popSize-1)
 							);
-
-				// Output generation statistics to screen
-				System.out.println(R + "\t" + G +  "\t" + (int)bestOfGenChromo.rawFitness + "\t" + averageRawFitness + "\t" + stdevRawFitness);
 
 				// Output generation statistics to summary file
 				summaryOutput.write(" R ");
@@ -367,7 +364,9 @@ public class Search {
 
 		} //End of a Run
 		// End NS timers
-		long end_time_ns = System.nanoTime();
+		end_time_ns = System.nanoTime();
+		dur_of_run = start_time_ns - end_time_ns;
+
 
 		Hwrite.left("B", 8, summaryOutput);
 
@@ -392,7 +391,7 @@ public class Search {
 		System.out.println("End  :  " + endTime);
 
 		System.out.println("Nanosecond Time (N = " + Parameters.numGenes + ")");
-		System.out.println("NS Time total: "+(end_time_ns - start_time_ns) + "ns");
+		System.out.println("NS Time total: " + dur_of_run + "ns");
 		if (found_sol == true){
 			System.out.println("NS Time until Solution: "+(first_sol_time_ns - start_time_ns) + "ns");
 			System.out.println("Representation: " + Parameters.valueRepresentation);

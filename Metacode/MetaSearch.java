@@ -48,6 +48,7 @@ public class MetaSearch {
 	public static boolean found_sol;
 	public static int[] first_solution_chromo;
 	public static boolean[][] first_solution_board;
+	public static int numberOfNQueenRuns;
 
 	public static int G;
 	public static int R;
@@ -82,6 +83,7 @@ public class MetaSearch {
 		start_time_ns = System.nanoTime();
 		first_sol_time_ns = -1;
 		found_sol = false;
+		numberOfNQueenRuns = 0;
 
 	//  Read Parameter File
 		System.out.println("\nParameter File Name is: " + args[0] + "\n");
@@ -116,9 +118,9 @@ public class MetaSearch {
 		memberFitness = new double[MetaParameters.popSize];
 		member = new MetaChromo[MetaParameters.popSize];
 		child = new MetaChromo[MetaParameters.popSize];
-		bestOfGenChromo = new MetaParameters();
-		bestOfRunChromo = new MetaParameters();
-		bestOverAllChromo = new MetaParameters();
+		bestOfGenChromo = new MetaChromo();
+		bestOfRunChromo = new MetaChromo();
+		bestOverAllChromo = new MetaChromo();
 
 		if (MetaParameters.minORmax.equals("max")){
 			defaultBest = 0;
