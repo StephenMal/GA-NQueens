@@ -101,6 +101,10 @@ public class Chromo {
 				chunkStart = temp;
 			}
 
+			System.out.println("Start of chunk: " + chunkStart + "End of chunk: " + chunkEnd + "Index: " + index);
+			System.out.println(Arrays.toString(this.chromo));
+
+
 			chunkq = new int[chunkEnd - chunkStart];
 			restq = new int[this.chromo.length - chunkq.length];
 			j = chunkStart;
@@ -110,24 +114,32 @@ public class Chromo {
 				chunkq[i] = this.chromo[j];
 				j++;
 			}
+			System.out.println(Arrays.toString(chunkq));
 
 			j = 0;
 			for(int i = 0; i < this.chromo.length; i++)
 			{
-				if(i < chunkStart || i > chunkEnd)
+				if(i < chunkStart || i >= chunkEnd)
 				{
 					restq[j] = this.chromo[i];
 					j++;
 				}
 			}
+			System.out.println(Arrays.toString(restq));
 
-			j = 0, k = 0;
-			for(int i = 0; i < this.chromo.length; i++)
+			j = 0;
+			k = 0;
+			for(int i = 0; i < this.chromo.length && k < restq.length; i++)
 			{
-				if(i < index || i > index + (chunkEnd - chunkStart))
+				if(i == index)
 				{
-					this.chromo[i] = chunkq[j];
-					j++;
+					while(j < chunkq.length)
+					{
+						this.chromo[i] = chunkq[j];
+						j++;
+						i++;
+					}
+					i--;
 				}
 				else
 				{
@@ -135,6 +147,7 @@ public class Chromo {
 					k++;
 				}
 			}
+			System.out.println(Arrays.toString(this.chromo));
 		}
 			break;
 		case 2: { // Exchange (Random Swap)
