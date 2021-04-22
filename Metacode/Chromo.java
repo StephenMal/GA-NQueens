@@ -86,7 +86,49 @@ public class Chromo {
 		// Switch to different mutation types dependent on the parameters
 		switch (Parameters.mutationType) {
 		case 1: { // Displacement
+			int chunkStart, chunkEnd, temp, index, j, k;
+			int[] chunkq;
+			int[] restq;
 
+			chunkStart = Search.r.nextInt(Parameters.numGenes);
+			chunkEnd = Search.r.nextInt(Parameters.numGenes);
+			index = Search.r.nextInt(Parameters.numGenes);
+
+			if (chunkStart > chunkEnd){
+				temp = chunkEnd;
+				chunkEnd = chunkStart;
+				chunkStart = temp;
+			}
+
+			chunkq = new int[chunkEnd - chunkStart];
+			restq = new int[this.chromo.length - chunkq.length];
+			j = chunkStart;
+
+			for(int i = 0; i < chunkq.length; i++){
+				chunkq[i] = this.chromo[j];
+				j++;
+			}
+
+			j = 0;
+			for(int i = 0; i < this.chromo.length; i++){
+				if(i < chunkStart || i > chunkEnd){
+					restq[j] = this.chromo[i];
+					j++;
+				}
+			}
+
+			j = 0;
+			k = 0;
+			for(int i = 0; i < this.chromo.length; i++){
+				if(i < index || i > index + (chunkEnd - chunkStart)){
+					this.chromo[i] = chunkq[j];
+					j++;
+				}
+				else{
+					this.chromo[i] = restq[k];
+					k++;
+				}
+			}
 		}
 			break;
 		case 2: { // Exchange (Random Swap)
