@@ -1,0 +1,71 @@
+Experiment ID                :nqueens
+Problem Type                 :NQ
+Data Input File Name         :NA
+Number of Runs               :5
+Generations per Run          :100
+Population Size              :100
+Selection Method (1)         :5
+Fitness Scaling Type (2)     :0
+Crossover Type (3)           :2
+Crossover Rate (4)           :0.3
+Mutation Type (5)            :8
+Mutation Rate (6)            :0.15
+Random Number Seed           :75982
+Number of Genes(# queens)(7) :6
+Gene Value Rep  (8)          :1
+Fitness Function  (9)        :2
+
+Notes:
+
+1)  Selection Type Codes
+	1 = Proportional Selection
+	2 = Random Selection
+	3 = Tournament Size 2
+	4 = Tournament Size 5
+	5 = Tournament Size 10
+
+2)  Fitness Scaling Type
+  0 = Scale
+	1 = Rank
+
+3)  Crossover Type Codes
+	1 = Partially Mapped
+	2 = Order
+	3 = Order-based
+	4 = Position based
+	5 = Cycle crossover
+	6 = Single Point
+	7 = Double Point
+	8 = Intersection + Random
+	9 = Intersection + Random w/o duplicates
+
+4)  Crossover Rates from 0 to 1
+	Use "0" to turn off crossover
+
+5)  Mutation Type Codes
+	1 = Displacement
+	2 = Exchange
+	3 = Insertion
+	4 = Inversion
+	5 = Local Swap
+	6 = Replace Chromosome
+	7 = Plus/Minus 1
+	8 = Replace Gene
+
+6)  Mutation Rates from 0 to 1,
+	Use "0" to turn off mutation
+
+7)	Represents number of genes in each chromosome.
+	(Should be size of the board)
+
+8)	Determines how the problem will be represented
+	1 = Col Pos Representation
+	2 = Repairing / random key pairing
+
+9)	Fitness Function
+	1 = Same Diagonal Punishment
+	2 = Number of Conflicts
+	3 = Reward until invalid queens
+	4 = Incrementing Reward
+	5 = Reward consecutive queens
+	6 = All or nothing (0 for failure, 1 for success)
