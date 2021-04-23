@@ -48,6 +48,7 @@ public class Search {
 	public static boolean found_sol;
 	public static int[] first_solution_chromo;
 	public static boolean[][] first_solution_board;
+	public static int curGeneration;
 
 	public static int G;
 	public static int R;
@@ -135,6 +136,7 @@ public class Search {
 		//  Start program for multiple runs
 		for (R = 1; R <= Parameters.numRuns; R++){
 
+			curGeneration = 0;
 			bestOfRunChromo.rawFitness = defaultBest;
 			System.out.println();
 
@@ -146,6 +148,8 @@ public class Search {
 
 			//	Begin Each Run
 			for (G=0; G<Parameters.generations; G++){
+
+				curGeneration = G;
 
 				sumProFitness = 0;
 				sumSclFitness = 0;
@@ -393,6 +397,15 @@ public class Search {
 
 		System.out.println("Nanosecond Time (N = " + Parameters.numGenes + ")");
 		System.out.println("NS Time total: "+(end_time_ns - start_time_ns) + "ns");
+
+		int duration_ms = (int)Math.floor((int)((int)end_time_ns - (int)start_time_ns)/(1000000));
+		if (found_sol == true){
+			System.out.println("You shouldn't see this then");
+		}
+		else {
+			writeFailResults(duration_ms);
+		}
+		/*
 		if (found_sol == true){
 			System.out.println("NS Time until Solution: "+(first_sol_time_ns - start_time_ns) + "ns");
 			System.out.println("Representation: " + Parameters.valueRepresentation);
@@ -402,6 +415,20 @@ public class Search {
 		else {
 			System.out.println("No solution found");
 		}
+		*/
 	} // End of Main Class
+
+	public static void writeFailResults(float time) throws IOException{
+		// Open results.csv
+		FileWriter fw = new FileWriter("results.csv",true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		// Generate Output String
+		String output = String.valueOf(time)+ "," + String.valueOf(10*(time))+ "," + String.valueOf(Parameters.generations);
+
+		// Write to file
+		bw.write(output);
+		bw.newLine();
+		bw.close();
+	}
 
 }   // End of Search.Java ******************************************************

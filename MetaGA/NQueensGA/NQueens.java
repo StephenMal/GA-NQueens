@@ -223,8 +223,42 @@ public class NQueens extends FitnessFunction{
 				Search.first_solution_chromo[col] = X.chromo[col];
 				Search.first_solution_board[queenPos[col]][col] = true;
 			}
+			try{
+				recordToSolutionsCSV(X);
+				recordToResultsCSV();
+			}
+			catch(IOException ex){
+				System.out.println("ERROR WITH RECORDING RESULTS");
+			}
 		}
 
+	}
+
+	public static void recordToSolutionsCSV(Chromo X) throws IOException{
+		// Open results.csv
+		FileWriter fw = new FileWriter("solutions/queen" + Parameters.numGenes + ".csv",true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		int duration_ms = (int)Math.floor((int)((int)Search.first_sol_time_ns - (int)Search.start_time_ns)/(1000000));
+		// Generate output string
+		String output = Parameters.numGenes + "," + String.valueOf(duration_ms)+ "," + Search.curGeneration + "," + Parameters.popSize + "," + Parameters.selectType + "," + Parameters.scaleType + "," + Parameters.xoverType + "," + Parameters.xoverRate + "," + Parameters.mutationType + "," + Parameters.mutationRate + "," + Parameters.valueRepresentation + "," + Parameters.fitnessFunctionType + "," + X.rawFitness + "," + Arrays.toString(X.chromo);
+		// Write it
+		bw.write(output);
+		bw.newLine();
+		bw.close();
+	}
+
+	public static void recordToResultsCSV() throws IOException{
+		// Open results.csv
+		FileWriter fw = new FileWriter("results.csv",true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		int duration_ms = (int)Math.floor((int)((int)Search.first_sol_time_ns - (int)Search.start_time_ns)/(1000000));
+		// Generate Output String
+		String output = String.valueOf(duration_ms)+ "," + String.valueOf((Search.first_sol_time_ns-Search.start_time_ns))+ "," + String.valueOf(Search.curGeneration);
+
+		// Write to file
+		bw.write(output);
+		bw.newLine();
+		bw.close();
 	}
 
 //	PRINT CHROMOSOME
