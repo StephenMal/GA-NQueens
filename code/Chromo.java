@@ -104,7 +104,6 @@ public class Chromo {
 			System.out.println("Start of chunk: " + chunkStart + "End of chunk: " + chunkEnd + "Index: " + index);
 			System.out.println(Arrays.toString(this.chromo));
 
-
 			chunkq = new int[chunkEnd - chunkStart];
 			restq = new int[this.chromo.length - chunkq.length];
 			j = chunkStart;
@@ -347,9 +346,12 @@ public class Chromo {
 			// Map to keep track of maped pair of two parents
 			HashMap<Integer, Integer> map1 = new HashMap<Integer, Integer>();
 			HashMap<Integer, Integer> map2 = new HashMap<Integer, Integer>();
-			// Keep track of the numbers already included in the offspring
-			Set<Integer> child1_set = new HashSet<Integer>(Parameters.numGenes);
-			Set<Integer> child2_set = new HashSet<Integer>(Parameters.numGenes);
+
+      // Copy parent to each child
+			for (int index = 0; index < Parameters.numGenes; index++) {
+				child1.chromo[index] = parent1.chromo[index];
+				child2.chromo[index] = parent2.chromo[index];
+			}
 
 			// Add xp1 to xp2 portion into the offscprings and generate the mapping
 			for (int index = xoverPoint1; index <= xoverPoint2; index++) {
@@ -357,9 +359,7 @@ public class Chromo {
 				map2.put(parent2.chromo[index], parent1.chromo[index]);
 
 				child1.chromo[index] = parent2.chromo[index];
-				child1_set.add(parent2.chromo[index]);
 				child2.chromo[index] = parent1.chromo[index];
-				child2_set.add(parent1.chromo[index]);
 			}
 
 			// Populate rest of the values in the offsprings
@@ -368,27 +368,12 @@ public class Chromo {
 					continue;
 
 				// Populate values for child 1
-				if (child1_set.contains(parent1.chromo[index])) {
-					int cur_val = parent1.chromo[index];
-					while (child1_set.contains(cur_val)) {
-						cur_val = map2.get(cur_val);
-					}
-					child1.chromo[index] = cur_val;
-					child1_set.add(cur_val);
-				} else {
-					child1.chromo[index] = parent1.chromo[index];
+				while (map2.containsKey(child1.chromo[index])){
+					child1.chromo[index] = map2.remove(child1.chromo[index]);
 				}
-
 				// Populate values for child 2
-				if (child2_set.contains(parent2.chromo[index])) {
-					int cur_val = parent2.chromo[index];
-					while (child2_set.contains(cur_val)) {
-						cur_val = map1.get(cur_val);
-					}
-					child2.chromo[index] = cur_val;
-					child2_set.add(cur_val);
-				} else {
-					child2.chromo[index] = parent2.chromo[index];
+				while (map1.containsKey(child2.chromo[index])){
+					child2.chromo[index] = map1.remove(child2.chromo[index]);
 				}
 			}
 		}
@@ -648,7 +633,6 @@ public class Chromo {
 				child1.chromo[i] = parent1.chromo[i];
 				child2.chromo[i] = parent2.chromo[i];
 			}
-
 		}
 			break;
 		case 8: { // Keep intersections, fill rest w/ randoms
