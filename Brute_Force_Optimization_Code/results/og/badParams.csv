@@ -1,0 +1,402 @@
+Queens: 5parameters: 
+{'pop': 2000, 'select': 1, 'scale': 1, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 6}
+Queens: 6parameters: 
+{'pop': 2000, 'select': 2, 'scale': 0, 'xover_type': 8, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 7parameters: 
+{'pop': 2000, 'select': 1, 'scale': 0, 'xover_type': 8, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 2000, 'select': 3, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 1, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 2, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 3, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 4, 'xover_rate': 1, 'mut_type': 6, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 2, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 4, 'mut_rate': 1, 'rep_type': 2, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 6parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 6, 'xover_rate': 1, 'mut_type': 3, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
+Queens: 4parameters: 
+{'pop': 5000, 'select': 1, 'scale': 0, 'xover_type': 7, 'xover_rate': 1, 'mut_type': 5, 'mut_rate': 1, 'rep_type': 1, 'fit_fxn': 5}
