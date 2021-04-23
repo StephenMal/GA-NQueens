@@ -104,7 +104,6 @@ public class Chromo {
 			System.out.println("Start of chunk: " + chunkStart + "End of chunk: " + chunkEnd + "Index: " + index);
 			System.out.println(Arrays.toString(this.chromo));
 
-
 			chunkq = new int[chunkEnd - chunkStart];
 			restq = new int[this.chromo.length - chunkq.length];
 			j = chunkStart;
@@ -348,7 +347,7 @@ public class Chromo {
 			HashMap<Integer, Integer> map1 = new HashMap<Integer, Integer>();
 			HashMap<Integer, Integer> map2 = new HashMap<Integer, Integer>();
 
-			// Copy parent to each child
+      // Copy parent to each child
 			for (int index = 0; index < Parameters.numGenes; index++) {
 				child1.chromo[index] = parent1.chromo[index];
 				child2.chromo[index] = parent2.chromo[index];
@@ -634,7 +633,6 @@ public class Chromo {
 				child1.chromo[i] = parent1.chromo[i];
 				child2.chromo[i] = parent2.chromo[i];
 			}
-
 		}
 			break;
 		case 8: { // Keep intersections, fill rest w/ randoms
