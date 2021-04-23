@@ -1,0 +1,16 @@
+Experiment ID                :nqueens
+Problem Type                 :NQ
+Data Input File Name         :NA
+Number of Runs               :1
+Generations per Run          :1000
+Population Size              :76
+Selection Method (1)         :5
+Fitness Scaling Type (2)     :0
+Crossover Type (3)           :2
+Crossover Rate (4)           :0.61
+Mutation Type (5)            :2
+Mutation Rate (6)            :0.96
+Random Number Seed           :75982
+Number of Genes(# queens)(7) :4
+Gene Value Rep  (8)          :2
+Fitness Function  (9)        :96
