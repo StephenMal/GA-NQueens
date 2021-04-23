@@ -104,6 +104,7 @@ public class Chromo {
 			System.out.println("Start of chunk: " + chunkStart + "End of chunk: " + chunkEnd + "Index: " + index);
 			System.out.println(Arrays.toString(this.chromo));
 
+
 			chunkq = new int[chunkEnd - chunkStart];
 			restq = new int[this.chromo.length - chunkq.length];
 			j = chunkStart;
@@ -347,7 +348,7 @@ public class Chromo {
 			HashMap<Integer, Integer> map1 = new HashMap<Integer, Integer>();
 			HashMap<Integer, Integer> map2 = new HashMap<Integer, Integer>();
 
-      // Copy parent to each child
+			// Copy parent to each child
 			for (int index = 0; index < Parameters.numGenes; index++) {
 				child1.chromo[index] = parent1.chromo[index];
 				child2.chromo[index] = parent2.chromo[index];
@@ -519,26 +520,33 @@ public class Chromo {
 			boolean swap = true; // To swap the source parent
 			int count = 0; // Keep track of taken genes
 			int position = 0; // Keep track of current position
-			ArrayList<Integer> p1List = new ArrayList<Integer>(); // One copy of parent1
-			ArrayList<Integer> p2List = new ArrayList<Integer>(); // One copy of parent2
-			ArrayList<Integer> par1List = new ArrayList<Integer>(); // Another copy of parent1
-			ArrayList<Integer> par2List = new ArrayList<Integer>(); // Another copy of parent2
+			int[] p1_copy = new int[Parameters.numGenes];
+			int[] p2_copy = new int[Parameters.numGenes];
+			int[] c1_copy = new int[Parameters.numGenes];
+
+			HashMap<Integer, Integer> index_map1 = new HashMap<Integer, Integer>();
+			HashMap<Integer, Integer> index_map2 = new HashMap<Integer, Integer>();
 
 			for (int index = 0; index < Parameters.numGenes; index++) {
-				child1.chromo[index] = -1; // Initialize all gene to -1
-				p1List.add(parent1.chromo[index]);
-				par1List.add(parent1.chromo[index]);
-				p2List.add(parent2.chromo[index]);
-				par2List.add(parent2.chromo[index]);
+				// child1.chromo[index] = -1; // Initialize all gene to -1
+				// child2.chromo[index] = -1;
+				c1_copy[index] = -1;
+			}
+
+			for (int index = 0; index < Parameters.numGenes; index++) {
+				p1_copy[index] = parent1.chromo[index];
+				index_map1.put(parent1.chromo[index], index);
+				p2_copy[index] = parent2.chromo[index];
+				index_map2.put(parent2.chromo[index], index);
 			}
 
 			while (true) {
-				if (count > Parameters.numGenes)
+				if (count >= Parameters.numGenes)
 					break;
 
 				// Get first index to start the cycle
 				for (int index = 0; index < Parameters.numGenes; index++) {
-					if (child1.chromo[index] == -1) {
+					if (c1_copy[index] == -1) {
 						position = index;
 						break;
 					}
@@ -546,29 +554,34 @@ public class Chromo {
 				// start cycle from parent1
 				if (swap) {
 					while (true) {
-						child1.chromo[position] = parent1.chromo[position];
+						c1_copy[position] = parent1.chromo[position];
+						p1_copy[position] = -1;
 						count++;
-						position = par2List.indexOf(parent1.chromo[position]);
-						if (p1List.get(position) == -1) {
+						position = index_map2.get(parent1.chromo[position]);
+						if (p1_copy[position] == -1) {
 							swap = false;
 							break;
 						}
-						p1List.set(position, -1);
 					}
 				}
 				// start cycle from parent2
 				else {
 					while (true) {
-						child1.chromo[position] = parent2.chromo[position];
+						c1_copy[position] = parent2.chromo[position];
+						p2_copy[position] = -1;
 						count++;
-						position = par1List.indexOf(parent2.chromo[position]);
-						if (p2List.get(position) == -1) {
+						position = index_map1.get(parent2.chromo[position]);
+						if (p2_copy[position] == -1) {
 							swap = true;
 							break;
 						}
-						p2List.set(position, -1);
+						p2_copy[position] = -1;
 					}
 				}
+			}
+			// Populate child1
+			for (int index = 0; index < Parameters.numGenes; index++) {
+				child1.chromo[index] = c1_copy[index];
 			}
 			// Populate child2
 			for (int index = 0; index < Parameters.numGenes; index++) {
@@ -581,7 +594,8 @@ public class Chromo {
 			// Special case
 			for (int index = 0; index < Parameters.numGenes; index++) {
 				if (child1.chromo[index] == -1) {
-					if (p1List.get(index) == -1) { // the ith gene from p1 has been already transfered
+					// if (p1List.get(index) == -1) { // the ith gene from p1 has been already transfered
+					if(p1_copy[index] == -1){
 						child1.chromo[index] = parent2.chromo[index];
 					} else {
 						child1.chromo[index] = parent1.chromo[index];
@@ -633,6 +647,7 @@ public class Chromo {
 				child1.chromo[i] = parent1.chromo[i];
 				child2.chromo[i] = parent2.chromo[i];
 			}
+
 		}
 			break;
 		case 8: { // Keep intersections, fill rest w/ randoms
